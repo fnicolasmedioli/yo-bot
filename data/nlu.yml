@@ -1,0 +1,330 @@
+version: "3.1"
+
+nlu:
+- intent: hola
+  examples: |
+    - hola
+    - buen dia
+    - buenos dias
+    - hola que tal
+    - hola buen dia
+    - buenas tardes
+    - buenas noches
+    - hola, buenas tardes
+    - hola, hay alguien?
+
+- intent: chau
+  examples: |
+    - chau
+    - adios
+    - fue un gusto
+    - adios, muchas gracias
+    - chau, gracias
+    - hasta luego
+    - nos vemos
+    - hasta pronto
+    - chau, gracias
+    - gracias, adios
+
+- intent: positivo
+  examples: |
+    - si
+    - me encataria
+    - si por favor
+    - si, por favor
+    - claro
+    - claro que si
+    - mas vale
+    - de una
+    - obvio
+    - en la medida de lo posible si
+    - si es posible si
+    - me gustaria
+    - si, me gustaria
+    - si, quiero
+    - si quiero
+
+- intent: negativo
+  examples: |
+    - no
+    - no quiero
+    - no me interesa
+    - nop
+    - nope
+    - nunca
+    - no gracias
+    - no, gracias
+    - ni en pedo
+
+- intent: cursando_materias
+  examples: |
+    - que materias estas cursando?
+    - estás cursando [analisis 2](asignatura)
+    - cursas [algebra](asignatura) este cuatrimestre?
+
+- lookup: asignatura
+  examples: |
+    - Álgebra Lineal
+    - Algebra Lineal
+    - lineal
+    - Álgebra I
+    - Álgebra 1
+    - Algebra I
+    - Algebra 1
+    - Álgebra
+    - Algebra
+    - Teoría de la Información
+    - Teoria de la Informacion
+    - teoria de la información
+    - teoría de la informacion
+    - Sistemas Operativos I
+    - Sistemas Operativos 1
+    - Sistemas Operativos
+    - sistemas
+    - Química
+    - Quimica
+    - Programación Orientada a Objetos
+    - Programacion Orientada a Objetos
+    - objetos
+    - Programación Exploratoria
+    - Programacion Exploratoria
+    - exploratoria
+    - Probabilidades y Estadística
+    - Probabilidades y Estadistica
+    - proba
+    - Metodologías de Desarrollo de Software I
+    - Metodologías de Desarrollo de Software 1
+    - Metodologías de Desarrollo de Software
+    - Metodologias de Desarrollo de Software I
+    - Metodologias de Desarrollo de Software 1
+    - Metodologias de Desarrollo de Software
+    - metodologias
+    - metodologías
+    - meto
+    - Matemática Discreta
+    - Matematica Discreta
+    - Lenguajes de Programación I
+    - Lenguajes de Programación 1
+    - Lenguajes de Programación
+    - Lenguajes de Programacion I
+    - Lenguajes de Programacion 1
+    - Lenguajes de Programacion
+    - lenguajes
+    - Investigación Operativa I
+    - Investigacion Operativa I
+    - Investigacion Operativa 1
+    - Investigación Operativa 1
+    - Investigación Operativa
+    - Investigacion Operativa
+    - investigacion
+    - investigación
+    - intro arqui
+    - intro arqui 1
+    - Introducción al Cálculo Diferencial e Integral
+    - Introducción a la Arquitectura de Sistemas
+    - Introduccion a la Arquitectura de Sistemas
+    - Introduccion al Calculo Diferencial e Integral
+    - Introduccion a la Programacion II
+    - Introducción a la Programación II
+    - Introduccion a la Programacion I
+    - Introducción a la Programación I
+    - Introduccion a la Programacion 2
+    - Introducción a la Programación 2
+    - Introduccion a la Programacion 1
+    - Introducción a la Programación 1
+    - Introducción a la Programación
+    - Introduccion a la Programacion
+    - Inglés
+    - Ingles
+    - Ingeniería de Software
+    - Ingenieria de Software
+    - Física General
+    - Fisica General
+    - Estructuras de Almacenamiento de Datos
+    - estructuras
+    - Electrónica Digital
+    - Electronica Digital
+    - electrónica
+    - electronica
+    - Electricidad y Magnetismo
+    - electricidad
+    - eym
+    - Diseño de Sistemas de Software
+    - Diseno de Sistemas de Software
+    - Diseño de Compiladores I
+    - Diseño de Compiladores 1
+    - Diseno de Compiladores I
+    - Diseno de Compiladores 1
+    - Diseno de Compiladores
+    - Diseño de Compiladores
+    - discreta
+    - cálculo
+    - calculo
+    - Comunicación de Datos II
+    - Comunicacion de Datos II
+    - Comunicación de Datos I
+    - Comunicacion de Datos I
+    - Comunicación de Datos 2
+    - Comunicación de Datos 1
+    - Comunicacion de Datos 2
+    - Comunicacion de Datos 1
+    - Comunicación de Datos
+    - Comunicacion de Datos
+    - comunicación
+    - comunicacion
+    - compiladores
+    - Ciencias de la Computación II
+    - Ciencias de la Computacion II
+    - Ciencias de la Computación I
+    - Ciencias de la Computacion I
+    - Ciencias de la Computación 2
+    - Ciencias de la Computación 1
+    - Ciencias de la Computacion 2
+    - Ciencias de la Computacion 1
+    - Ciencias de la Computación
+    - Ciencias de la Computacion
+    - ciencias II
+    - ciencias I
+    - ciencias 2
+    - ciencias 1
+    - ciencias
+    - Base de Datos I
+    - Base de Datos 1
+    - Base de Datos
+    - bases de datos 1
+    - bases de datos i
+    - bases de datos
+    - Arquitectura de Computadoras y Técnicas Digitales
+    - Arquitectura de Computadoras y Tecnicas Digitales
+    - Arquitectura de Computadoras I
+    - Arquitectura de Computadoras 1
+    - Arquitectura de Computadoras
+    - arqui
+    - Análisis y Diseño de Algoritmos II
+    - Analisis y Diseno de Algoritmos II
+    - Análisis y Diseño de Algoritmos I
+    - Analisis y Diseno de Algoritmos I
+    - Análisis y Diseño de Algoritmos 2
+    - Análisis y Diseño de Algoritmos 1
+    - Analisis y Diseno de Algoritmos 2
+    - Analisis y Diseno de Algoritmos 1
+    - Análisis y Diseño de Algoritmos
+    - Analisis y Diseno de Algoritmos
+    - ayda ii
+    - ayda i
+    - ayda 2
+    - ayda 1
+    - ayda
+    - algoritmos 2
+    - algoritmos
+    - Analisis Matematico II
+    - Análisis Matemático II
+    - Analisis Matematico I
+    - Analisis Matematico 2
+    - Analisis Matematico 1
+    - Análisis Matemático I
+    - Análisis Matemático 2
+    - Análisis Matemático 1
+    - Análisis Matemático
+    - Analisis Matematico
+    - analisis ii
+    - análisis ii
+    - analisis i
+    - análisis i
+    - analisis 1
+    - análisis 2
+    - análisis 1
+    - analisis 2
+    - analisis
+    - análisis
+
+- intent: sos_bot
+  examples: |
+    - sos un bot?
+    - sos humano?
+    - sos una persona?
+    - estoy hablando con una persona?
+    - estoy hablando con un bot?
+    - eres un robot?
+
+- synonym: asignatura
+  examples: |
+    - materia
+
+- synonym: cuatrimestre
+  examples: |
+    - cuatri
+
+- synonym: proyecto
+  examples: |
+    - bot
+    - chatbot
+
+- intent: como_vas
+  examples: |
+    - como vas con la [cursada](como_vas_con)
+    - terminaste de [cursar]{"entity":"como_vas_con","value":"cursada"}
+    - vas bien con el [proyecto](como_vas_con)
+    - como vas con el [proyeco](como_vas_con)
+    - como vas con el chatbot
+    - vas bien con el [curso]{"entity":"como_vas_con","value":"cursada"}
+    - como vas con las [cursadas]{"entity":"como_vas_con","value":"cursada"}
+    - llevas [todo]{"entity":"como_vas_con","value":"cursada"} al día?
+    - llevas la [cursada]{"entity":"como_vas_con","value":"cursada"} al dia?
+    - llevas las [cursadas]{"entity":"como_vas_con","value":"cursada"} al día?
+    - llevas [algebra lineal](asignatura) al día?
+    - como venís con [analisis matemático](asignatura)?
+    - venis bien con comunicacion de datos?
+    - estas al dia con algoritmos 2
+    - como estas con [electronica digital](asignatura)?
+    - como vas con [matemática discreta](asignatura)?
+    - como estas para [metodologias](asignatura)?
+    - como vas con los [finales]{"entity":"como_vas_con","value":"finales"}
+    - vas bien con los [finales]{"entity":"como_vas_con","value":"finales"}
+    - como vas con los [examenes]{"entity":"como_vas_con","value":"finales"}
+    - como vas con los [exámenes]{"entity":"como_vas_con","value":"finales"}
+    - llevas la [carrera](como_vas_con) al día?
+    - llevas todo al dia?
+    - como te está yendo en la [facultad]{"entity":"como_vas_con","value":"carrera"}?
+    - como te esta yendo con la [carrera]{"entity":"como_vas_con","value":"carrera"}
+
+- intent: materia_mas_me_gusta
+  examples: |
+    - que materia es la que más te gusta?
+    - cual es la asignatura que mas te gusta?
+    - te gusta programacion exploratoria?
+    - cuale es la mejor materia?
+
+- intent: pregunta_asignatura
+  examples: |
+    - cuantos finales te quedan?
+    - que finales rendiste?
+    - como vas con los finales?
+    - ya rendiste el final de [analisis 2](asignatura)
+    - diste [algebra](asignatura)
+    - todavía te falta el final de comunicacion de datos?
+    - que finales debes?
+    - cuantas debes?
+    - como estas con los finales?
+    - estas al dia con los finales?
+    - que nota sacaste en el final de ayda 2?
+    - que sacaste en algoritmos?
+    - como te fue en el final de [matematica discreta](asignatura)?
+    - como te fue en meto?
+    - aprobaste [comunicacion de datos](asignatura)?
+    - tenes que dar [programacion 1](asignatura)?
+    - ya diste fisica?
+    - tenes la cursada de [intro arqui](asignatura) aprobada?
+    - ya cursaste lineal?
+    - cuando vas a cursar electrónica?
+
+- synonym: promocion
+  examples: |
+    - promoción
+
+- intent: promocionadas
+  examples: |
+    - que materias has promocionado?
+    - promocionaste alguna asignatura?
+    - buscas alguna promocion?
+    - vas a promocionar alguna?

@@ -1,0 +1,18 @@
+version: "3.1"
+
+stories:
+
+- story: Como voy con ...
+  steps:
+  - intent: como_vas
+  - action: action_como_voy
+
+- story: Que materias estoy cursando
+  steps:
+  - intent: cursando_materias
+  - action: utter_cursando_materias
+
+- story: Pregunta finales
+  steps:
+  - intent: pregunta_asignatura
+  - action: action_respuesta_asignatura

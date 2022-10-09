@@ -1,0 +1,148 @@
+[
+    {
+        "codigo": 6111,
+        "nombres": ["Introduccion a la Programacion I", "Introduccion a la Programacion", "intro 1", "programacion 1"]
+    },
+    {
+        "codigo": 6112,
+        "nombres": ["Analisis Matematico I", "Analisis Matematico", "analisis 1", "analisis"]
+    },
+    {
+        "codigo": 6113,
+        "nombres": ["Algebra I", "algebra"]
+    },
+    {
+        "codigo": 6114,
+        "nombres": ["Quimica"]
+    },
+    {
+        "codigo": 6121,
+        "nombres": ["Ciencias de la Computacion I", "Ciencias de la Computacion", "ciencias 1", "ciencias"]
+    },
+    {
+        "codigo": 6122,
+        "nombres": ["Introduccion a la Programacion II", "intro 2", "programacion 2"]
+    },
+    {
+        "codigo": 6123,
+        "nombres": ["Algebra Lineal", "lineal"]
+    },
+    {
+        "codigo": 6124,
+        "nombres": ["Fisica General", "fisica"]
+    },
+    {
+        "codigo": 6125,
+        "nombres": ["Matematica Discreta", "discreta"]
+    },
+    {
+        "codigo": 6211,
+        "nombres": ["Ciencias de la Computacion II", "ciencias 2"]
+    },
+    {
+        "codigo": 6212,
+        "nombres": ["Analisis y Diseno de Algoritmos I", "algoritmos", "algoritmos 1", "ayda", "ayda 1"]
+    },
+    {
+        "codigo": 6213,
+        "nombres": ["Introduccion a la Arquitectura de Sistemas", "intro arqui"]
+    },
+    {
+        "codigo": 6214,
+        "nombres": ["Analisis Matematico II", "analisis 2"]
+    },
+    {
+        "codigo": 6215,
+        "nombres": ["Electricidad y Magnetismo", "electricidad", "eym"]
+    },
+    {
+        "codigo": 6221,
+        "nombres": ["Analisis y Diseno de Algoritmos II", "algoritmos 2", "ayda 2"]
+    },
+    {
+        "codigo": 6222,
+        "nombres": ["Comunicacion de Datos I", "Comunicacion de Datos", "comunicacion", "comunicacion 1"]
+    },
+    {
+        "codigo": 6223,
+        "nombres": ["Probabilidades y Estadistica", "proba"]
+    },
+    {
+        "codigo": 6224,
+        "nombres": ["Electronica Digital", "electronica"],
+        "como_voy": "estoy un poco atrasado"
+    },
+    {
+        "codigo": 9001,
+        "nombres": ["Ingles"],
+        "como_voy": "estoy al dia"
+    },
+    {
+        "codigo": 6311,
+        "nombres": ["Programacion Orientada a Objetos", "objetos"]
+    },
+    {
+        "codigo": 6312,
+        "nombres": ["Estructuras de Almacenamiento de Datos", "estructura", "estructuras"]
+    },
+    {
+        "codigo": 6313,
+        "nombres": ["Metodologias de Desarrollo de Software I", "Metodologias de Desarrollo de Software", "meto", "metodologias"]
+    },
+    {
+        "codigo": 6314,
+        "nombres": ["Arquitectura de Computadoras I", "Arquitectura de Computadoras", "arqui 1", "arquitectura", "arqui"]
+    },
+    {
+        "codigo": 6321,
+        "nombres": ["Programacion Exploratoria", "exploratoria"],
+        "como_voy": "estoy al dia con el chatbot y la cursada"
+    },
+    {
+        "codigo": 6322,
+        "nombres": ["Base de Datos I", "base de datos", "bases de datos 1", "bases de datos"],
+        "como_voy": "estoy al dia, pero no se como me fue en el parcial"
+    },
+    {
+        "codigo": 6323,
+        "nombres": ["Lenguajes de Programacion I", "lenguajes 1", "lenguajes de programacion", "lenguajes"],
+        "como_voy": "estoy casi al dia, un poco atrasado con los practicos"
+    },
+    {
+        "codigo": 6324,
+        "nombres": ["Sistemas Operativos I", "sistemas", "sistemas operativos"]
+    },
+    {
+        "codigo": 6325,
+        "nombres": ["Investigacion Operativa I", "Investigacion Operativa", "operativa"],
+        "como_voy": "estoy al día, preparado para el parcial"
+    },
+    {
+        "codigo": 6411,
+        "nombres": ["Arquitectura de Computadoras y Tecnicas Digitales"]
+    },
+    {
+        "codigo": 6412,
+        "nombres": ["Teoria de la Informacion"]
+    },
+    {
+        "codigo": 6413,
+        "nombres": ["Comunicacion de Datos II"]
+    },
+    {
+        "codigo": 6414,
+        "nombres": ["Introduccion al Calculo Diferencial e Integral", "calculo"]
+    },
+    {
+        "codigo": 6421,
+        "nombres": ["Diseno de Sistemas de Software"]
+    },
+    {
+        "codigo": 6422,
+        "nombres": ["Diseno de Compiladores I", "Diseno de Compiladores", "compiladores 1", "compiladores"]
+    },
+    {
+        "codigo": 6511,
+        "nombres": ["Ingenieria de Software"]
+    }
+]

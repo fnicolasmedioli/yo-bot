@@ -1,0 +1,23 @@
+version: "3.1"
+
+rules:
+
+- rule: Hola
+  steps:
+  - intent: hola
+  - action: utter_hola
+
+- rule: Chau
+  steps:
+  - intent: chau
+  - action: utter_chau
+
+- rule: Materia que mas me gusta
+  steps:
+  - intent: materia_mas_me_gusta
+  - action: action_materia_mas_me_gusta
+
+- rule: Promocionadas
+  steps:
+  - intent: promocionadas
+  - action: utter_promocionadas

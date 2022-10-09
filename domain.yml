@@ -1,0 +1,70 @@
+version: "3.1"
+
+intents:
+  - hola
+  - chau
+  - positivo
+  - negativo
+  - cursando_materias
+  - sos_bot
+  - como_vas
+  - materia_mas_me_gusta
+  - pregunta_asignatura
+  - promocionadas
+
+entities:
+  - asignatura
+  - como_vas_con
+
+slots:
+  asignatura:
+    type: text
+    mappings:
+    - type: custom
+      action: action_set_asignatura
+  como_vas_con:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: como_vas_con
+  
+actions:
+  - action_como_voy
+  - action_set_asignatura
+  - action_materia_mas_me_gusta
+  - action_respuesta_asignatura
+
+responses:
+  utter_hola:
+  - text: "hola!"
+
+  utter_chau:
+  - text: "chau!"
+
+  utter_como_voy_con_cursada:
+  - text: "llevo la cursada al día"
+
+  utter_como_voy_con_proyecto:
+  - text: "ya casi estoy por terminarlo"
+
+  utter_como_voy_con_no_entendi:
+  - text: "perdón, como voy con que?"
+
+  utter_cursando_materias:
+  - text: "estoy cursando lenguajes, programacion exploratoria, base de datos, ingles, electronica digital e investigacion operativa"
+
+  utter_como_estoy_finales:
+  - text: "debo 5 finales actualmente:\nel final de ayda 2, electricidad, electronica y los de tercero, el resto de segundo ya los aprobe"
+
+  utter_materia_mas_me_gusta:
+  - text: "programación exploratoria es la materia que más me gusta!"
+
+  utter_como_llevo_carrera:
+  - text: "llevo la carrera al día"
+
+  utter_promocionadas:
+  - text: "hasta ahora he promocionado 5 materias:\n  - Introducción a la Arquitectura de Sistemas\n  - Física General\n  - Introducción a la Programación II\n  - Análisis Matemático I\n  - Algebra I"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: false
