@@ -12,11 +12,14 @@ intents:
   - pregunta_asignatura
   - promocionadas
   - nombre
+  - cuantos_dias_mundial
+  - pais
 
 entities:
   - asignatura
   - como_vas_con
   - nombre
+  - pais
 
 slots:
   asignatura:
@@ -40,6 +43,7 @@ actions:
   - action_set_asignatura
   - action_materia_mas_me_gusta
   - action_respuesta_asignatura
+  - action_dias_para_el_mundial
 
 responses:
   utter_hola:
@@ -82,7 +86,13 @@ responses:
   - text: "no hay problema!"
 
   utter_como_es:
-  - text: "como es?"
+  - text: "como?"
+
+  utter_quien_gana_mundial:
+  - text: "quien crees que gana el mundial?"
+
+  utter_va_a_ganar_argentina:
+  - text: "va a ganar argentina!"
 
 session_config:
   session_expiration_time: 60

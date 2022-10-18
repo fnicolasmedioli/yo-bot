@@ -42,3 +42,11 @@ stories:
   steps:
   - intent: pregunta_asignatura
   - action: action_respuesta_asignatura
+
+- story: Dias para el mundial
+  steps:
+  - intent: cuantos_dias_mundial
+  - action: action_dias_para_el_mundial
+  - action: utter_quien_gana_mundial
+  - intent: pais
+  - action: utter_va_a_ganar_argentina

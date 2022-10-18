@@ -155,3 +155,26 @@ class ActionRespuestaAsignatura(Action):
             dispatcher.utter_message(text=f"la estoy cursando este cuatrimestre")
 
         return []
+
+
+
+class ActionDiasParaElMundial(Action):
+
+    def name(self) -> Text:
+        return "action_dias_para_el_mundial"
+    
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        import datetime
+
+        fecha_mundial = datetime.date(2022, 11, 20)
+        hoy = datetime.date.today()
+        delta = fecha_mundial - hoy
+
+        dias = delta.days
+
+        dispatcher.utter_message(text=f"faltan {dias} días")
+
+        return []

@@ -338,3 +338,19 @@ nlu:
     - [nicolas](nombre)
     - me dicen [analia](nombre)
     - mi nombre es [mati](nombre)
+
+- intent: cuantos_dias_mundial
+  examples: |
+    - cuantos días faltan para el mundial?
+    - cuantias dias para el mundial?
+    - cuanto falta para el mundial?
+    - estas ansioso por el mundial?
+    - cuantos días quedan para el mundial?
+
+- intent: pais
+  examples: |
+    - [argentina](pais)
+    - [paraguay](pais)
+    - va a ganar [holanda](pais)
+    - gana [peru](pais)
+    
