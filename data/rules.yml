@@ -2,11 +2,6 @@ version: "3.1"
 
 rules:
 
-- rule: Hola
-  steps:
-  - intent: hola
-  - action: utter_hola
-
 - rule: Chau
   steps:
   - intent: chau

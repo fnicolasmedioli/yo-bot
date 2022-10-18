@@ -2,6 +2,32 @@ version: "3.1"
 
 stories:
 
+- story: Saludo + conocer
+  steps:
+  - intent: hola
+  - action: utter_hola
+  - action: utter_con_quien_hablo
+  - intent: nombre
+  - action: utter_gusto_en_conocerte
+
+- story: Saludo + no quiere dar su nombre
+  steps:
+  - intent: hola
+  - action: utter_hola
+  - action: utter_con_quien_hablo
+  - intent: negativo
+  - action: utter_no_problem
+
+- story: Saludo + se hace rogar el nombre
+  steps:
+  - intent: hola
+  - action: utter_hola
+  - action: utter_con_quien_hablo
+  - intent: positivo
+  - action: utter_como_es
+  - intent: nombre
+  - action: utter_gusto_en_conocerte
+
 - story: Como voy con ...
   steps:
   - intent: como_vas

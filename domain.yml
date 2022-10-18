@@ -11,10 +11,12 @@ intents:
   - materia_mas_me_gusta
   - pregunta_asignatura
   - promocionadas
+  - nombre
 
 entities:
   - asignatura
   - como_vas_con
+  - nombre
 
 slots:
   asignatura:
@@ -27,6 +29,11 @@ slots:
     mappings:
     - type: from_entity
       entity: como_vas_con
+  nombre:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: nombre
   
 actions:
   - action_como_voy
@@ -64,6 +71,18 @@ responses:
 
   utter_promocionadas:
   - text: "hasta ahora he promocionado 5 materias:\n  - Introducción a la Arquitectura de Sistemas\n  - Física General\n  - Introducción a la Programación II\n  - Análisis Matemático I\n  - Algebra I"
+
+  utter_con_quien_hablo:
+  - text: "podrías decirme tu nombre?"
+
+  utter_gusto_en_conocerte:
+  - text: "gusto en conocerte {nombre}!"
+
+  utter_no_problem:
+  - text: "no hay problema!"
+
+  utter_como_es:
+  - text: "como es?"
 
 session_config:
   session_expiration_time: 60

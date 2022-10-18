@@ -266,7 +266,7 @@ nlu:
     - terminaste de [cursar]{"entity":"como_vas_con","value":"cursada"}
     - vas bien con el [proyecto](como_vas_con)
     - como vas con el [proyeco](como_vas_con)
-    - como vas con el chatbot
+    - como vas con el [chatbot](como_vas_con)
     - vas bien con el [curso]{"entity":"como_vas_con","value":"cursada"}
     - como vas con las [cursadas]{"entity":"como_vas_con","value":"cursada"}
     - llevas [todo]{"entity":"como_vas_con","value":"cursada"} al día?
@@ -328,3 +328,13 @@ nlu:
     - promocionaste alguna asignatura?
     - buscas alguna promocion?
     - vas a promocionar alguna?
+
+- intent: nombre
+  examples: |
+    - [analia](nombre)
+    - soy [analía](nombre)
+    - me llamo [analia amandi](nombre)
+    - [matias](nombre)
+    - [nicolas](nombre)
+    - me dicen [analia](nombre)
+    - mi nombre es [mati](nombre)
