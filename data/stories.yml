@@ -28,21 +28,6 @@ stories:
   - intent: nombre
   - action: utter_gusto_en_conocerte
 
-- story: Como voy con ...
-  steps:
-  - intent: como_vas
-  - action: action_como_voy
-
-- story: Que materias estoy cursando
-  steps:
-  - intent: cursando_materias
-  - action: utter_cursando_materias
-
-- story: Pregunta finales
-  steps:
-  - intent: pregunta_asignatura
-  - action: action_respuesta_asignatura
-
 - story: Dias para el mundial
   steps:
   - intent: cuantos_dias_mundial

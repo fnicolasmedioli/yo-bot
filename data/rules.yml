@@ -16,3 +16,18 @@ rules:
   steps:
   - intent: promocionadas
   - action: utter_promocionadas
+
+- rule: Pregunta finales
+  steps:
+  - intent: pregunta_asignatura
+  - action: action_respuesta_asignatura
+
+- rule: Como voy con ...
+  steps:
+  - intent: como_vas
+  - action: action_como_voy
+
+- rule: Que materias estoy cursando
+  steps:
+  - intent: cursando_materias
+  - action: utter_cursando_materias
