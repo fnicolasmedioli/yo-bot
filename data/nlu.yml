@@ -21,6 +21,7 @@ nlu:
     - adios, muchas gracias
     - chau, gracias
     - hasta luego
+    - hasta mañana
     - nos vemos
     - hasta pronto
     - chau, gracias
@@ -43,24 +44,56 @@ nlu:
     - si, me gustaria
     - si, quiero
     - si quiero
+    - si puedo
+    - puedo
+    - si, gracias
+    - ok
+    - yo puedo
+    - yo podría
+    - yo podria
+    - genial
+    - acepto
+    - me viene bien
+    - joya
+    - oka
 
 - intent: negativo
   examples: |
     - no
     - no quiero
     - no me interesa
+    - no puedo
+    - no acepto
+    - no podría
+    - no podria
+    - en ese horario no puedo
+    - no, perdon
+    - no, perdón
+    - no, lo lamento
+    - ese día no voy a poder
+    - no voy a poder
+    - imposible
+    - no hay chance
     - nop
     - nope
     - nunca
     - no gracias
     - no, gracias
     - ni en pedo
+    - no te voy a decir
+    - no te incumbe
+    - no te interesa
+    - que te importa
+    - no te importa
+    - metete en tus cosas
 
 - intent: cursando_materias
   examples: |
     - que materias estas cursando?
     - estás cursando [analisis 2](asignatura)
     - cursas [algebra](asignatura) este cuatrimestre?
+    - en qué materias estás?
+    - en que materias estas?
 
 - lookup: asignatura
   examples: |
@@ -246,19 +279,28 @@ nlu:
     - estoy hablando con una persona?
     - estoy hablando con un bot?
     - eres un robot?
+    - demostrame que sos una persona
+    - bot
+    - robot
+    - persona
 
 - synonym: asignatura
   examples: |
     - materia
+    - materias
+    - asignaturas
 
 - synonym: cuatrimestre
   examples: |
     - cuatri
+    - semestre
+    - cursada
 
 - synonym: proyecto
   examples: |
     - bot
     - chatbot
+    - trabajo
 
 - intent: como_vas
   examples: |
@@ -293,7 +335,9 @@ nlu:
     - que materia es la que más te gusta?
     - cual es la asignatura que mas te gusta?
     - te gusta programacion exploratoria?
-    - cuale es la mejor materia?
+    - cual es la mejor materia?
+    - te gusta exploratoria?
+    - cuál es tu materia preferida?
 
 - intent: pregunta_asignatura
   examples: |
@@ -320,6 +364,8 @@ nlu:
 
 - synonym: promocion
   examples: |
+    - promocionada
+    - promociones
     - promoción
 
 - intent: promocionadas
@@ -338,6 +384,13 @@ nlu:
     - [nicolas](nombre)
     - me dicen [analia](nombre)
     - mi nombre es [mati](nombre)
+    - [nicolás](nombre) para vos
+    - vos llamame [analia](nombre)
+    - decime [analía](nombre)
+    - para vos soy [juan](nombre)
+    - para vos voy a ser [anabella](nombre)
+    - vos decime [jose](nombre)
+    - soy [brisa](nombre) para vos
 
 - intent: cuantos_dias_mundial
   examples: |
@@ -346,6 +399,16 @@ nlu:
     - cuanto falta para el mundial?
     - estas ansioso por el mundial?
     - cuantos días quedan para el mundial?
+    - estoy esperando el mundial
+    - ansioso por el mundial
+    - quiero que gane argentina
+    - argentina campeón
+    - argentina gana el mundial
+    - mundial
+    - mundial de fútbol
+    - qatar
+    - catar
+    - fase de grupos
 
 - intent: pais
   examples: |
