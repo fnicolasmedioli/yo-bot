@@ -2,3 +2,4 @@
 actions/__pycache__/
 models/
 credentials.yml
+latest_messages.json

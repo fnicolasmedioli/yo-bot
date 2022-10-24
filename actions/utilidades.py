@@ -24,11 +24,10 @@ def es_plural(s):
 
 class OperarArchivo():
 
-#    @staticmethod
-#    def guardar(s,ruta):
-#        with open(ruta,"w") as archivo:
-#            json.dump(s, archivo, indent=4)
-#        archivo.close()
+    @staticmethod
+    def escribir_json(s,ruta):
+        with open(ruta,"w") as archivo:
+            json.dump(s, archivo, indent=4)
 
     @staticmethod
     def leer_json(ruta): 

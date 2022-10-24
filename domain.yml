@@ -14,6 +14,9 @@ intents:
   - nombre
   - cuantos_dias_mundial
   - pais
+  - anulo_mufa
+  - si_fueras_un_insecto
+  - dias_horarios_cursada
 
 entities:
   - asignatura
@@ -38,6 +41,12 @@ slots:
     - type: from_entity
       entity: nombre
     initial_value: null
+  telegram_cb:
+    type: bool
+    influence_conversation: false
+    mappings:
+    - type: custom
+      action: action_telegram_management
   
 actions:
   - action_como_voy
@@ -45,6 +54,7 @@ actions:
   - action_materia_mas_me_gusta
   - action_respuesta_asignatura
   - action_dias_para_el_mundial
+  - action_telegram_management
 
 responses:
   utter_hola:
@@ -120,6 +130,18 @@ responses:
   utter_va_a_ganar_argentina:
   - text: "va a ganar argentina!"
   - text: "gana argentina obviamente!"
+
+  utter_anulo_mufax2:
+  - text: "anulo mufa x2"
+
+  utter_si_fuera_un_insecto:
+  - text: "una mosca!"
+
+  utter_dias_horarios:
+  - text: "curso todos los dias"
+
+  utter_default:
+  - text: "no te entendi :("
 
 session_config:
   session_expiration_time: 60

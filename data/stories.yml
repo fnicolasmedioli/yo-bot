@@ -35,3 +35,18 @@ stories:
   - action: utter_quien_gana_mundial
   - intent: pais
   - action: utter_va_a_ganar_argentina
+
+- story: Anulo mufa
+  steps:
+  - intent: anulo_mufa
+  - action: utter_anulo_mufax2
+
+- story: Insectos...
+  steps:
+  - intent: si_fueras_un_insecto
+  - action: utter_si_fuera_un_insecto
+
+- story: dias y horarios cursada
+  steps:
+  - intent: dias_horarios_cursada
+  - action: utter_dias_horarios

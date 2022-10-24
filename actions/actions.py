@@ -7,6 +7,8 @@ import actions.asignaturas as asignaturas
 import actions.utilidades as utilidades
 from swiplserver import PrologMQI, PrologThread
 import json
+import datetime
+import actions.telegram_api as telegram_api
 
 # dispatcher.utter_message(text="Hello World!")
 # tracker.latest_message["intent"].get("name")
@@ -166,8 +168,6 @@ class ActionDiasParaElMundial(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
-        import datetime
 
         fecha_mundial = datetime.date(2022, 11, 20)
         hoy = datetime.date.today()
@@ -176,5 +176,74 @@ class ActionDiasParaElMundial(Action):
         dias = delta.days
 
         dispatcher.utter_message(text=f"faltan {dias} días")
+
+        return []
+
+
+class ActionTelegramManagement(Action):
+
+    def name(self) -> Text:
+        return "action_telegram_management"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        metadata = tracker.latest_message["metadata"]
+
+        if not metadata:
+            return []
+
+        message = metadata["message"]
+        user_id = str(message["from"]["id"])
+        user_is_bot = message["from"]["is_bot"]
+        user_name = message["from"]["first_name"]
+        message_timestamp = message["date"]
+        chat_id = str(message["chat"]["id"])
+        chat_type = message["chat"]["type"]
+
+        if user_is_bot or chat_type == "private":
+            return []
+
+        data_obj = utilidades.OperarArchivo.leer_json("latest_messages.json")
+
+        if not chat_id in data_obj:
+            data_obj[chat_id] = {}
+
+        write = ""
+
+        if not user_id in data_obj[chat_id]:
+            data_obj[chat_id][user_id] = {
+                "nombre": user_name,
+                "ultimo_msg": message_timestamp,
+                "ultima_solicitud": message_timestamp
+            }
+            write += f"Hola {user_name}! Te registré en mi base de datos, a partir de ahora si no trabajas te voy a mandar al frente 3:)\n"
+        
+        # Actualizar timestamps del usuario que habló
+
+        data_obj[chat_id][user_id]["ultimo_msg"] = message_timestamp
+        data_obj[chat_id][user_id]["ultima_solicitud"] = message_timestamp
+
+        # Para cada integrante chequear
+        # ultimo mensaje y ultimo llamado de atencion
+
+        now = datetime.datetime.timestamp(datetime.datetime.now())
+
+        MAX_IDLE = 3600 * 24 * 2 # 2 dias
+        TIEMPO_SOLICITUD = 3600 * 5 # 6 horas
+
+        for k in list(data_obj[chat_id].keys()):
+            usuario = data_obj[chat_id][k]
+
+            if (now - usuario["ultimo_msg"] > MAX_IDLE) and (now - usuario["ultima_solicitud"] > TIEMPO_SOLICITUD):
+                # Entonces solicitar al usuario que participe en el grupo
+                write += f"Por favor {usuario['nombre']}, participa en el grupo.\n"
+                usuario["ultima_solicitud"] = int(now)
+        
+        utilidades.OperarArchivo.escribir_json(data_obj, "latest_messages.json")
+
+        if write != "":
+            telegram_api.send_message(write, chat_id)
 
         return []

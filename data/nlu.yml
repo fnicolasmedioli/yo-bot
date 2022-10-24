@@ -427,3 +427,24 @@ nlu:
     - [uruguay](pais)
     - [croacia](pais)
     - [belgica](pais)
+
+- intent: anulo_mufa
+  examples: |
+    - anulo mufa
+    - mufa
+
+- intent: si_fueras_un_insecto
+  examples: |
+    - si fueras un insecto cual serias?
+    - si fueras un animal, cual serías?
+    - si nacieras de nuevo, qué serias?
+
+- intent: dias_horarios_cursada
+  examples: |
+    - que dias cursas?
+    - en que horarios cursas?
+    - que dia y hora cursas?
+    - que días cursas?
+    - que días y horarios estás cursando?
+    - cuando cursas?
+    - cuando estas cursando?
