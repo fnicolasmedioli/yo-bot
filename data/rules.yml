@@ -36,3 +36,8 @@ rules:
   steps:
   - intent: cursando_materias
   - action: utter_cursando_materias
+
+- rule: Mandame una foto
+  steps:
+  - intent: una_foto
+  - action: action_foto

@@ -541,3 +541,16 @@ nlu:
     - depresion
     - depresión
     - triste
+
+- intent: una_foto
+  examples: |
+    - mandame una foto
+    - quiero una foto
+    - una foto de un [panda](pedido_foto)
+    - enviame una foto de un [perro](pedido_foto)
+    - una de un [gato](pedido_foto)
+    - mandame una foto de un [koala](pedido_foto)
+    - mandame una foto de un [pajaro](pedido_foto)
+    - mandame una foto de un [pájaro](pedido_foto)
+    - mandame una foto de un [zorro](pedido_foto)
+    - mandame una foto de un [oso](pedido_foto)

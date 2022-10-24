@@ -22,12 +22,14 @@ intents:
   - estoy_bien
   - estoy_mal
   - explicacion_mal_estado
+  - una_foto
 
 entities:
   - asignatura
   - como_vas_con
   - nombre
   - pais
+  - pedido_foto
 
 slots:
   asignatura:
@@ -55,6 +57,12 @@ slots:
     mappings:
     - type: custom
       action: action_telegram_management
+  pedido_foto:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: pedido_foto
   
 actions:
   - action_como_voy
@@ -63,6 +71,7 @@ actions:
   - action_respuesta_asignatura
   - action_dias_para_el_mundial
   - action_telegram_management
+  - action_foto
 
 responses:
   utter_hola:

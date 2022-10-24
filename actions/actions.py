@@ -9,6 +9,7 @@ from swiplserver import PrologMQI, PrologThread
 import json
 import datetime
 import actions.telegram_api as telegram_api
+import requests
 
 # dispatcher.utter_message(text="Hello World!")
 # tracker.latest_message["intent"].get("name")
@@ -247,3 +248,36 @@ class ActionTelegramManagement(Action):
             telegram_api.send_message(write, chat_id)
 
         return [SlotSet("nombre", user_name)]
+
+
+class ActionUnaFoto(Action):
+
+    def name(self) -> Text:
+        return "action_foto"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        slot_foto = tracker.get_slot("pedido_foto")
+
+        k = None
+
+        if slot_foto == "perro": k = "dog"
+        if slot_foto == "gato": k = "cat"
+        if slot_foto == "pajaro": k = "bird"
+        if slot_foto == "pájaro": k = "bird"
+        if slot_foto == "zorro": k = "fox"
+        if slot_foto == "oso": k = "panda"
+        if slot_foto == "panda": k = "panda"
+        if slot_foto == "koala": k = "koala"
+
+        if not k:
+            return []
+        
+        link = None
+        link = requests.get(f"https://some-random-api.ml/img/{k}").json()["link"]
+
+        dispatcher.utter_message(image=link)
+
+        return []
