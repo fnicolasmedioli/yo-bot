@@ -56,6 +56,9 @@ nlu:
     - me viene bien
     - joya
     - oka
+    - efectivamente
+    - correcto
+    - si, ese mismo
 
 - intent: negativo
   examples: |
@@ -448,3 +451,93 @@ nlu:
     - que días y horarios estás cursando?
     - cuando cursas?
     - cuando estas cursando?
+
+- intent: ciudad_origen
+  examples: |
+    - de donde sos?
+    - de donde venis?
+    - de donde venís?
+    - sos de tandil?
+    - sos de rauch?
+    - viniste a tandil a estudiar?
+
+- intent: como_estas
+  examples: |
+    - como estas?
+    - como estás?
+    - como andas?
+    - todo bien?
+    - todo joya?
+    - que tal
+    - como va todo?
+    - como va?
+    - como andan las cosas?
+    - como anda todo?
+    - estas bien?
+    - estás bien?
+    - estás feliz?
+
+- intent: estoy_bien
+  examples: |
+    - estoy bien
+    - bien
+    - feliz
+    - estoy mejor que nunca
+    - feliz de la vida
+    - aca ando
+
+- intent: estoy_mal
+  examples: |
+    - no muy bien
+    - un poco triste
+    - un poco mal
+    - muy mal
+    - re triste
+    - re mal
+    - angustiada
+    - mal
+    - triste
+    - tirando
+    - sobreviviendo
+    - pesimo
+    - pésimo
+    - melancolico
+    - melancólico
+    - decaido
+    - decaído
+    - deplorable
+    - apagado
+    - desanimado
+    - estresada
+    - furioso
+    - enojado
+    - sentado
+    - como el culo
+    - como el orto
+    - para la mierda
+    - para el culo
+
+- synonym: dinero
+  examples: |
+    - plata
+    - guita
+    - bienes
+
+- intent: explicacion_mal_estado
+  examples: |
+    - se murio mi abuela
+    - desaprobé el parcial
+    - mi novia me dejó
+    - me rompi la pierna
+    - nada
+    - me peleé con mis padres
+    - me pelie con mi novia
+    - nostalgia
+    - buenos tiempos
+    - me quedé sin yerba
+    - no tengo dinero
+    - soy pobre
+    - tengo depre
+    - depresion
+    - depresión
+    - triste

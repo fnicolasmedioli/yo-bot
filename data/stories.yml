@@ -2,31 +2,21 @@ version: "3.1"
 
 stories:
 
-- story: Saludo + conocer
+- story: Saludo 1
   steps:
   - intent: hola
   - action: utter_hola
-  - action: utter_con_quien_hablo
-  - intent: nombre
-  - action: utter_gusto_en_conocerte
-
-- story: Saludo + no quiere dar su nombre
-  steps:
-  - intent: hola
-  - action: utter_hola
-  - action: utter_con_quien_hablo
-  - intent: negativo
-  - action: utter_no_problem
-
-- story: Saludo + se hace rogar el nombre
-  steps:
-  - intent: hola
-  - action: utter_hola
-  - action: utter_con_quien_hablo
   - intent: positivo
-  - action: utter_como_es
+  - action: utter_un_gusto_de_nuevo
+
+- story: Saludo 2
+  steps:
+  - intent: hola
+  - action: utter_hola
+  - intent: negativo
+  - action: utter_con_quien_hablo
   - intent: nombre
-  - action: utter_gusto_en_conocerte
+  - action: utter_un_gusto
 
 - story: Dias para el mundial
   steps:
@@ -50,3 +40,21 @@ stories:
   steps:
   - intent: dias_horarios_cursada
   - action: utter_dias_horarios
+
+- story: Como estoy + bien
+  steps:
+  - intent: como_estas
+  - action: utter_como_estas
+  - action: utter_vos_como_estas
+  - intent: estoy_bien
+  - action: utter_me_alegro
+
+- story: Como estoy + mal
+  steps:
+  - intent: como_estas
+  - action: utter_como_estas
+  - action: utter_vos_como_estas
+  - intent: estoy_mal
+  - action: utter_que_te_paso
+  - intent: explicacion_mal_estado
+  - action: utter_que_pena

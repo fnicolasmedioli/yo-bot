@@ -218,7 +218,7 @@ class ActionTelegramManagement(Action):
                 "ultimo_msg": message_timestamp,
                 "ultima_solicitud": message_timestamp
             }
-            write += f"Hola {user_name}! Te registré en mi base de datos, a partir de ahora si no trabajas te voy a mandar al frente 3:)\n"
+            # write += f"Hola {user_name}! Te registré en mi base de datos, a partir de ahora si no trabajas te voy a mandar al frente 3:)\n"
         
         # Actualizar timestamps del usuario que habló
 
@@ -246,4 +246,4 @@ class ActionTelegramManagement(Action):
         if write != "":
             telegram_api.send_message(write, chat_id)
 
-        return []
+        return [SlotSet("nombre", user_name)]

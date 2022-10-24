@@ -17,6 +17,11 @@ intents:
   - anulo_mufa
   - si_fueras_un_insecto
   - dias_horarios_cursada
+  - ciudad_origen
+  - como_estas
+  - estoy_bien
+  - estoy_mal
+  - explicacion_mal_estado
 
 entities:
   - asignatura
@@ -27,16 +32,19 @@ entities:
 slots:
   asignatura:
     type: text
+    influence_conversation: false
     mappings:
     - type: custom
       action: action_set_asignatura
   como_vas_con:
     type: text
+    influence_conversation: false
     mappings:
     - type: from_entity
       entity: como_vas_con
   nombre:
     type: text
+    influence_conversation: false
     mappings:
     - type: from_entity
       entity: nombre
@@ -58,8 +66,11 @@ actions:
 
 responses:
   utter_hola:
-  - text: "hola!"
-  - text: "buenas!"
+  - text: "hola, {nombre} cierto?"
+  - text: "buenas, {nombre} cierto?"
+
+  utter_un_gusto_de_nuevo:
+  - text: "un gusto verte de nuevo"
 
   utter_chau:
     - condition:
@@ -112,6 +123,9 @@ responses:
   utter_con_quien_hablo:
   - text: "podrías decirme tu nombre?"
 
+  utter_un_gusto:
+  - text: "un gusto {nombre}!"
+
   utter_gusto_en_conocerte:
   - text: "gusto en conocerte {nombre}!"
   - text: "encantado de conocerte {nombre}"
@@ -142,6 +156,25 @@ responses:
 
   utter_default:
   - text: "no te entendi :("
+
+  utter_ciudad_origen:
+  - text: "soy de rauch, estoy en tandil para estudiar"
+
+  utter_como_estas:
+  - text: "estoy mejor que nunca, gracias por preguntar"
+
+  utter_vos_como_estas:
+  - text: "y vos como estas?"
+
+  utter_me_alegro:
+  - text: "me alegro!"
+
+  utter_que_te_paso:
+  - text: "por?, que te paso?"
+
+  utter_que_pena:
+  - text: "que mal :|, pero aca te dejo un momazo"
+    image: "https://i.chzbgr.com/full/9041671424/hCE1FE1D7"
 
 session_config:
   session_expiration_time: 60

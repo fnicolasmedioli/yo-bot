@@ -2,6 +2,11 @@ version: "3.1"
 
 rules:
 
+- rule: De donde vengo
+  steps:
+  - intent: ciudad_origen
+  - action: utter_ciudad_origen
+
 - rule: Chau
   steps:
   - intent: chau
