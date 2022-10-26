@@ -10,6 +10,10 @@ import json
 import datetime
 import actions.telegram_api as telegram_api
 import requests
+import os
+import random
+
+RAPID_API_KEY = os.environ.get("xRapidApiKey")
 
 # dispatcher.utter_message(text="Hello World!")
 # tracker.latest_message["intent"].get("name")
@@ -261,23 +265,39 @@ class ActionUnaFoto(Action):
 
         slot_foto = tracker.get_slot("pedido_foto")
 
-        k = None
+        if not slot_foto:
+            print("Slot vacio")
+            return []
 
-        if slot_foto == "perro": k = "dog"
-        if slot_foto == "gato": k = "cat"
-        if slot_foto == "pajaro": k = "bird"
-        if slot_foto == "pájaro": k = "bird"
-        if slot_foto == "zorro": k = "fox"
-        if slot_foto == "oso": k = "panda"
-        if slot_foto == "panda": k = "panda"
-        if slot_foto == "koala": k = "koala"
-
-        if not k:
+        if not RAPID_API_KEY:
+            print("No se encontro la RAPID-API KEY")
             return []
         
-        link = None
-        link = requests.get(f"https://some-random-api.ml/img/{k}").json()["link"]
+        querystring = {"q": slot_foto, "pageNumber": "1", "pageSize": "3", "autoCorrect": "true"}
 
-        dispatcher.utter_message(image=link)
+        headers = {
+            "X-RapidAPI-Key": RAPID_API_KEY,
+            "X-RapidAPI-Host": "contextualwebsearch-websearch-v1.p.rapidapi.com"
+        }
+
+        url_foto = None
+
+        try:
+            response = requests.request("GET", "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/ImageSearchAPI", headers=headers, params=querystring)
+        except:
+            print("No se pudo conectar a la API de imagenes")
+            dispatcher.utter_message(text="y si no quiero???")
+            return []
+
+        if len(response.json()["value"]) == 0:
+            print("No se encontraron fotos")
+            dispatcher.utter_message(text="y si no quiero???")
+            return []
+
+        n = random.randint(0, len(response.json()["value"]) - 1)
+
+        url_foto = response.json()["value"][n]["url"]
+
+        dispatcher.utter_message(image=url_foto)
 
         return []

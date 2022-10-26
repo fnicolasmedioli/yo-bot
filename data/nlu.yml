@@ -542,6 +542,10 @@ nlu:
     - depresión
     - triste
 
+- synonym: foto
+  examples: |
+    - imagen
+
 - intent: una_foto
   examples: |
     - mandame una foto
@@ -554,3 +558,35 @@ nlu:
     - mandame una foto de un [pájaro](pedido_foto)
     - mandame una foto de un [zorro](pedido_foto)
     - mandame una foto de un [oso](pedido_foto)
+    - dame una foto de una [cabra](pedido_foto)
+    - quiero otra
+    - otra mas
+    - otra de un [cangrejo](pedido_foto)
+    - otra del [titanic](pedido_foto)
+    - mandame otra mas
+    - quiero otra mas
+    - otra
+    - de nuevo
+    - mandame foto del [diego]{"entity":"pedido_foto","value":"maradona"}
+    - mandame foto del [10]{"entity":"pedido_foto","value":"messi"}
+    - mandame una foto del [rey leon](pedido_foto)
+    - mandame foto de [maradona](pedido_foto)
+    - mandame foto de [taylor swift](pedido_foto)
+    - mandame una foto de [ricardo fort](pedido_foto)
+    - mandame una foto de [john cena](pedido_foto)
+    - mandame foto del [colectivo azul](pedido_foto)
+    - mandame una del [hombre araña](pedido_foto)
+    - mandame otra de [perry el ornitorrinco](pedido_foto)
+    - mandame una foto del [obelisco](pedido_foto)
+    - mandame una mas
+    - enviame una foto de [tandil](pedido_foto)
+    - mandame una foto de un [mate](pedido_foto)
+    - mandame una foto de un [mouse](pedido_foto)
+    - mandame una foto de un [calefactor](pedido_foto)
+    - mandame una foto de una [torta de chocolate](pedido_foto)
+    - mandame una foto de una [escoba voladora](pedido_foto)
+    - mandame una foto de la [catedral](pedido_foto)
+    - mandame una foto de la [bomba atómica](pedido_foto)
+    - mandame una foto de los [beatles](pedido_foto)
+    - ahora una del [everest](pedido_foto)
+    - ahora una de la [mona lisa](pedido_foto)
