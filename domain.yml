@@ -46,7 +46,7 @@ slots:
       entity: como_vas_con
   nombre:
     type: text
-    influence_conversation: false
+    influence_conversation: true
     mappings:
     - type: from_entity
       entity: nombre
@@ -75,8 +75,12 @@ actions:
 
 responses:
   utter_hola:
-  - text: "hola, {nombre} cierto?"
-  - text: "buenas, {nombre} cierto?"
+    - condition:
+      - type: slot
+        name: nombre
+        value: null
+      text: "hola! como te llamas?"
+    - text: "hola, {nombre} cierto?"
 
   utter_un_gusto_de_nuevo:
   - text: "un gusto verte de nuevo"

@@ -194,6 +194,9 @@ class ActionTelegramManagement(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
+        if not "metadata" in tracker.latest_message:
+            return []
+        
         metadata = tracker.latest_message["metadata"]
 
         if not metadata:
@@ -223,7 +226,7 @@ class ActionTelegramManagement(Action):
                 "ultimo_msg": message_timestamp,
                 "ultima_solicitud": message_timestamp
             }
-            # write += f"Hola {user_name}! Te registré en mi base de datos, a partir de ahora si no trabajas te voy a mandar al frente 3:)\n"
+            write += f"Hola {user_name}! Te registré en mi base de datos, a partir de ahora si no trabajas te voy a mandar al frente 3:)\n"
         
         # Actualizar timestamps del usuario que habló
 
@@ -251,7 +254,50 @@ class ActionTelegramManagement(Action):
         if write != "":
             telegram_api.send_message(write, chat_id)
 
-        return [SlotSet("nombre", user_name)]
+
+        if not tracker.get_slot("nombre"):
+            return [SlotSet("nombre", user_name)]
+        else:
+            return []
+
+
+def find_last(s, q):
+    desde = -1
+    while True:
+        t = s.find(q, desde + 1)
+        if t == -1:
+            break
+        desde = t
+    return desde
+
+
+def entidad_foto(s):
+
+    pre = [" un ", " una ", " del ", " de ", " los ", " la "]
+    ind = []
+
+    last_index_max = 0
+    last_max = 0
+
+    for i in range(len(pre)):
+        last = find_last(s, pre[i])
+        if last > last_max:
+            last_max = last
+            last_index_max = i
+        ind.append(last)
+
+    if last_max == -1:
+        return None
+
+    entidad = None
+
+    if ind[2] != -1:
+        entidad = s[ind[2] + len(pre[2]):]
+    else:
+        entidad = s[last_max + len(pre[last_index_max]):]
+
+    return entidad
+
 
 
 class ActionUnaFoto(Action):
@@ -263,17 +309,21 @@ class ActionUnaFoto(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        slot_foto = tracker.get_slot("pedido_foto")
-
-        if not slot_foto:
-            print("Slot vacio")
-            return []
-
         if not RAPID_API_KEY:
             print("No se encontro la RAPID-API KEY")
             return []
+
+        texto_busqueda = entidad_foto(tracker.latest_message["text"])
+
+        if not texto_busqueda:
+            texto_busqueda = tracker.get_slot("pedido_foto")
+
+        if not texto_busqueda:
+            return []
+
+        print(f"imagen a buscar: \"{texto_busqueda}\"")
         
-        querystring = {"q": slot_foto, "pageNumber": "1", "pageSize": "3", "autoCorrect": "true"}
+        querystring = {"q": texto_busqueda, "pageNumber": "1", "pageSize": "3", "autoCorrect": "true"}
 
         headers = {
             "X-RapidAPI-Key": RAPID_API_KEY,

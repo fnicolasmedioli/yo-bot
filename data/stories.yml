@@ -2,19 +2,30 @@ version: "3.1"
 
 stories:
 
-- story: Saludo 1
+- story: Saludo + nombre telegram
   steps:
   - intent: hola
+  - slot_was_set:
+    - nombre: nombre seteado por telegram
   - action: utter_hola
   - intent: positivo
   - action: utter_un_gusto_de_nuevo
 
-- story: Saludo 2
+- story: Saludo + nombre telegram 2
   steps:
   - intent: hola
+  - slot_was_set:
+    - nombre: nombre seteado por telegram
   - action: utter_hola
   - intent: negativo
   - action: utter_con_quien_hablo
+  - intent: nombre
+  - action: utter_un_gusto
+
+- story: Saludo preguntar nombre
+  steps:
+  - intent: hola
+  - action: utter_hola
   - intent: nombre
   - action: utter_un_gusto
 
