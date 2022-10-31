@@ -51,3 +51,8 @@ rules:
   steps:
   - intent: risa
   - action: utter_risa
+
+- rule: Pide nombre
+  steps:
+  - intent: pide_nombre
+  - action: utter_mi_nombre

@@ -164,7 +164,6 @@ class ActionRespuestaAsignatura(Action):
         return []
 
 
-
 class ActionDiasParaElMundial(Action):
 
     def name(self) -> Text:
@@ -184,6 +183,73 @@ class ActionDiasParaElMundial(Action):
 
         return []
 
+
+class ActionTeGustaAlgo(Action):
+
+    def name(self) -> Text:
+        return "action_te_gusta_algo"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        slot_algo = tracker.get_slot("te_gusta")
+
+        print("trabajando con slot:", slot_algo)
+
+        if not slot_algo:
+            print("error inesperado2")
+            return []
+        
+        cosas_que_no_me_gustan = ["pepino", "araña", "fumar", "politicos", "mosca"]
+
+        algo_singular = utilidades.plural_a_singular(slot_algo)
+
+        if algo_singular in cosas_que_no_me_gustan:
+            if utilidades.es_plural(slot_algo):
+                dispatcher.utter_message(text="no me gustan para nada!")
+            else:
+                dispatcher.utter_message(text="no me gusta para nada!")
+        else:
+            if utilidades.es_plural(slot_algo):
+                dispatcher.utter_message(text="me encantan!")
+            else:
+                dispatcher.utter_message(text="me encanta!")
+        
+
+class ActionTeGustaAsignatura(Action):
+
+    def name(self) -> Text:
+        return "action_te_gusta_asignatura"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        if len(tracker.latest_message["entities"]) == 0:
+            print("Ejecutando action_te_gusta_asignatura pero no se detecto ninguna entidad")
+            return []
+
+        entidad_asignatura = tracker.latest_message["entities"][0]["value"]
+
+        asignatura_json = asignaturas.buscar_asignatura_por_nombre(entidad_asignatura)
+
+        if not asignatura_json:
+            print("No se encontro la asignatura:", entidad_asignatura)
+            return []
+
+        cod_asignatura = asignatura_json["codigo"]
+
+        info = asignaturas.recuperar_info_asignatura(cod_asignatura)
+
+        if info["me_gusta"]:
+            dispatcher.utter_message(text=f"siii! {asignaturas.nombre_asignatura(cod_asignatura)} es de las materias que más me gustan")
+        else:
+            dispatcher.utter_message(text=f"no, {asignaturas.nombre_asignatura(cod_asignatura)} es de las materias que menos me gustan")
+        
+
+        return []
+    
 
 class ActionTelegramManagement(Action):
 

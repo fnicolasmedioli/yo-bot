@@ -29,6 +29,8 @@ intents:
   - que_opinas_de
   - que_contas
   - contame_un_chiste
+  - pide_nombre
+  - te_gusta
 
 entities:
   - asignatura
@@ -36,11 +38,12 @@ entities:
   - nombre
   - pais
   - pedido_foto
+  - te_gusta
 
 slots:
   asignatura:
     type: text
-    influence_conversation: false
+    influence_conversation: true
     mappings:
     - type: custom
       action: action_set_asignatura
@@ -69,6 +72,12 @@ slots:
     mappings:
     - type: from_entity
       entity: pedido_foto
+  te_gusta:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: te_gusta
   
 actions:
   - action_como_voy
@@ -78,6 +87,8 @@ actions:
   - action_dias_para_el_mundial
   - action_telegram_management
   - action_foto
+  - action_te_gusta_asignatura
+  - action_te_gusta_algo
 
 responses:
   utter_hola:
@@ -140,7 +151,7 @@ responses:
   - text: "hasta ahora he promocionado 5 materias:\n  - Introducción a la Arquitectura de Sistemas\n  - Física General\n  - Introducción a la Programación II\n  - Análisis Matemático I\n  - Algebra I"
 
   utter_con_quien_hablo:
-  - text: "podrías decirme tu nombre?"
+  - text: "perdón, podrías decirme tu nombre?"
 
   utter_un_gusto:
   - text: "un gusto {nombre}!"
@@ -214,6 +225,8 @@ responses:
   - text: ""
     image: "https://ep01.epimg.net/verne/imagenes/2015/08/04/articulo/1438683590_611299_1438690137_sumario_normal.jpg"
 
+  utter_mi_nombre:
+  - text: "soy nicolás!"
 
 session_config:
   session_expiration_time: 60

@@ -329,7 +329,7 @@ nlu:
     - como vas con la [cursada](como_vas_con)
     - terminaste de [cursar]{"entity":"como_vas_con","value":"cursada"}
     - vas bien con el [proyecto](como_vas_con)
-    - como vas con el [proyeco](como_vas_con)
+    - como vas con el [proyecto](como_vas_con)
     - como vas con el [chatbot](como_vas_con)
     - vas bien con el [curso]{"entity":"como_vas_con","value":"cursada"}
     - como vas con las [cursadas]{"entity":"como_vas_con","value":"cursada"}
@@ -340,6 +340,7 @@ nlu:
     - como venís con [analisis matemático](asignatura)?
     - venis bien con comunicacion de datos?
     - estas al dia con algoritmos 2
+    - como vas con el [bot](como_vas_con)
     - como estas con [electronica digital](asignatura)?
     - como vas con [matemática discreta](asignatura)?
     - como estas para [metodologias](asignatura)?
@@ -708,3 +709,46 @@ nlu:
     - mandame un chistonto
     - mandame un meme
     - mandame un momazo
+
+- intent: pide_nombre
+  examples: |
+    - como te llamas?
+    - quien sos?
+    - quien eres?
+    - cómo te llamas?
+    - cuál es tu nombre?
+    - cual es tu nombre?
+    - como es tu nombre?
+    - sos nicolas?
+    - sos nicolás?
+
+- intent: te_gusta
+  examples: |
+    - te gusta el [helado](te_gusta)
+    - te gusta el [helado de menta granizada](te_gusta)
+    - te gusta el [chocolate blanco](te_gusta)
+    - te gustan los [caracoles](te_gusta)
+    - te gustan las [almendras](te_gusta)
+    - te gusta la [comida rapida](te_gusta)
+    - te gusta la [matemática](te_gusta)?
+    - te gustan las [estrellas](te_gusta)
+    - te gustan los [caballos](te_gusta)
+    - te gustan las [hormigas](te_gusta)?
+    - te gusta la [nieve](te_gusta)?
+    - te gustan las [cataratas del iguazu](te_gusta)
+    - te gustaria ir a [costa de marfil](te_gusta)
+    - te gustaría comer una [torta de frutilla](te_gusta)
+    - te gusta?
+    - te gusto?
+    - te gustó?
+    - te gustaron?
+    - te gusta la [materia](te_gusta)
+    - te gustan los [camellos y dromedarios](te_gusta)
+    - te gusta [bases de datos](asignatura)
+    - te gusta algebra lineal?
+    - te gusta programacion exploratoria?
+    - te gusta introduccion a la programacion 1?
+    - te está gustando la [materia](te_gusta)?
+    - te esta gustando la [materia](te_gusta)?
+    - te gusta lenguajes de programacion?
+    - te gusta exploratoria?

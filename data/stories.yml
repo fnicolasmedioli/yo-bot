@@ -22,6 +22,17 @@ stories:
   - intent: nombre
   - action: utter_un_gusto
 
+- story: Saludo + nombre telegram 2
+  steps:
+  - intent: hola
+  - slot_was_set:
+    - nombre: nombre seteado por telegram
+  - action: utter_hola
+  - intent: negativo
+  - action: utter_con_quien_hablo
+  - intent: negativo
+  - action: utter_no_problem
+
 - story: Saludo preguntar nombre
   steps:
   - intent: hola
@@ -90,3 +101,17 @@ stories:
   - action: utter_chiste
   - intent: negativo
   - action: utter_perdon
+
+- story: Te gusta algo
+  steps:
+  - intent: te_gusta
+  - slot_was_set:
+    - te_gusta: fewfwehtrhd
+  - action: action_te_gusta_algo
+
+- story: Te gusta asignatura
+  steps:
+  - intent: te_gusta
+  - slot_was_set:
+    - asignatura: fdsajfhk
+  - action: action_te_gusta_asignatura

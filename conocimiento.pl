@@ -108,6 +108,15 @@ en_curso(6321).
 en_curso(9001).
 en_curso(6224).
 
+me_gusta(6311). % Objetos
+me_gusta(6215). % Electricidad
+me_gusta(6321). % Exploratoria
+me_gusta(6322). % Bases de Datos
+me_gusta(6212). % Ayda 1
+me_gusta(6221). % Ayda 2
+me_gusta(9001). % Ingles
+me_gusta(6224). % Electronica
+
 materia_adeudada(X) :- materia(X, _, _), nota_cursada(X, _), not(nota_final(X, _)).
 materia_de(Codigo, Anio) :- materia(Codigo, Anio, _).
 

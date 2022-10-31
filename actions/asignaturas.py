@@ -73,7 +73,6 @@ def nombre_a_codigo(nombre):
     if asignatura:
         return asignatura["codigo"]
 
-
 def recuperar_info_asignatura(codigo):
 
     info = {}
@@ -110,5 +109,8 @@ def recuperar_info_asignatura(codigo):
     claves = list(info_json.keys())
     for clave in claves:
         info[clave] = info_json[clave]
+
+    r = consultar_prolog(f"me_gusta({codigo}).", False)
+    info["me_gusta"] = r
     
     return info

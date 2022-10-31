@@ -20,7 +20,15 @@ def mapear_entidades(lista_entidades):
     return mapeo
 
 def es_plural(s):
-    return s[-1] == "s" or s[-1] == "S"
+    return s[-2:] == "es" or s[-1] == "s"
+
+def plural_a_singular(s):
+    if not es_plural:
+        return s
+    elif s[-2] == "e":
+        return s[0:-2]
+    else:
+        return s[0:-1]            
 
 class OperarArchivo():
 
