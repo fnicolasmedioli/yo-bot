@@ -37,15 +37,12 @@ stories:
   - intent: pais
   - action: utter_va_a_ganar_argentina
 
-- story: Anulo mufa
-  steps:
-  - intent: anulo_mufa
-  - action: utter_anulo_mufax2
-
 - story: Insectos...
   steps:
   - intent: si_fueras_un_insecto
   - action: utter_si_fuera_un_insecto
+  - intent: por_que
+  - action: utter_por_que_seria_grillo
 
 - story: dias y horarios cursada
   steps:
@@ -69,3 +66,27 @@ stories:
   - action: utter_que_te_paso
   - intent: explicacion_mal_estado
   - action: utter_que_pena
+
+- story: Mandame una foto 1
+  steps:
+  - intent: una_foto
+  - action: action_foto
+
+- story: Mandame una foto 2
+  steps:
+  - intent: una_foto
+  - action: action_foto
+  - intent: no_es_lo_que_te_pedi
+  - action: utter_perdon
+
+- story: Que contas
+  steps:
+  - intent: que_contas
+  - action: utter_los_numeros
+
+- story: Quiero un chiste
+  steps:
+  - intent: contame_un_chiste
+  - action: utter_chiste
+  - intent: negativo
+  - action: utter_perdon

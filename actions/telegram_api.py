@@ -1,10 +1,15 @@
 import requests
 import os
 
-TELEGRAM_BOT_API_KEY = os.environ.get("TELEGRAM_BOT_API_KEY")
+telegramBotApiKey = os.environ.get("telegramBotApiKey")
 
 def send_message(text, chat_id):
-    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_API_KEY}/sendMessage"
+
+    if not telegramBotApiKey:
+        print("telegramBotApiKey no encontrada")
+        return
+
+    url = f"https://api.telegram.org/bot{telegramBotApiKey}/sendMessage"
 
     payload = {
         "text": text,
@@ -16,7 +21,6 @@ def send_message(text, chat_id):
 
     headers = {
         "accept": "application/json",
-        "User-Agent": "Telegram Bot SDK - (https://github.com/irazasyed/telegram-bot-sdk)",
         "content-type": "application/json"
     }
 

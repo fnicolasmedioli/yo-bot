@@ -27,7 +27,7 @@ rules:
   - intent: pregunta_asignatura
   - action: action_respuesta_asignatura
 
-- rule: Como voy con ...
+- rule: Como voy
   steps:
   - intent: como_vas
   - action: action_como_voy
@@ -37,7 +37,17 @@ rules:
   - intent: cursando_materias
   - action: utter_cursando_materias
 
-- rule: Mandame una foto
+- rule: Anulo mufa
   steps:
-  - intent: una_foto
-  - action: action_foto
+  - intent: anulo_mufa
+  - action: utter_anulo_mufax2
+
+- rule: Que opino de
+  steps:
+  - intent: que_opinas_de
+  - action: utter_puro_humo
+
+- rule: Risa
+  steps:
+  - intent: risa
+  - action: utter_risa

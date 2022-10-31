@@ -13,7 +13,7 @@ import requests
 import os
 import random
 
-RAPID_API_KEY = os.environ.get("xRapidApiKey")
+xRapidApiKey = os.environ.get("xRapidApiKey")
 
 # dispatcher.utter_message(text="Hello World!")
 # tracker.latest_message["intent"].get("name")
@@ -180,7 +180,7 @@ class ActionDiasParaElMundial(Action):
 
         dias = delta.days
 
-        dispatcher.utter_message(text=f"faltan {dias} días")
+        dispatcher.utter_message(text=f"faltan {dias} días, empieza el 20 de noviembre")
 
         return []
 
@@ -194,13 +194,10 @@ class ActionTelegramManagement(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        if not "metadata" in tracker.latest_message:
+        if not "metadata" in tracker.latest_message or not tracker.latest_message["metadata"]:
             return []
         
         metadata = tracker.latest_message["metadata"]
-
-        if not metadata:
-            return []
 
         message = metadata["message"]
         user_id = str(message["from"]["id"])
@@ -309,8 +306,8 @@ class ActionUnaFoto(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        if not RAPID_API_KEY:
-            print("No se encontro la RAPID-API KEY")
+        if not xRapidApiKey:
+            print("xRapidApiKey no encontrada")
             return []
 
         texto_busqueda = entidad_foto(tracker.latest_message["text"])
@@ -326,7 +323,7 @@ class ActionUnaFoto(Action):
         querystring = {"q": texto_busqueda, "pageNumber": "1", "pageSize": "3", "autoCorrect": "true"}
 
         headers = {
-            "X-RapidAPI-Key": RAPID_API_KEY,
+            "X-RapidAPI-Key": xRapidApiKey,
             "X-RapidAPI-Host": "contextualwebsearch-websearch-v1.p.rapidapi.com"
         }
 
@@ -336,12 +333,12 @@ class ActionUnaFoto(Action):
             response = requests.request("GET", "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/ImageSearchAPI", headers=headers, params=querystring)
         except:
             print("No se pudo conectar a la API de imagenes")
-            dispatcher.utter_message(text="y si no quiero???")
+            dispatcher.utter_message(text="no me pude conectar con la API de imagenes :(")
             return []
 
         if len(response.json()["value"]) == 0:
             print("No se encontraron fotos")
-            dispatcher.utter_message(text="y si no quiero???")
+            dispatcher.utter_message(text="no encontré fotos :(")
             return []
 
         n = random.randint(0, len(response.json()["value"]) - 1)

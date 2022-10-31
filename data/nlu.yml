@@ -66,6 +66,9 @@ nlu:
     - correcto
     - si, ese mismo
     - se
+    - exacto
+    - exactamente
+    - tal cual
 
 - intent: negativo
   examples: |
@@ -96,6 +99,15 @@ nlu:
     - que te importa
     - no te importa
     - metete en tus cosas
+    - muy malo
+    - malisimo
+    - malísimo
+    - me tenía que reir?
+    - me tengo que reir?
+    - me tenia que reír?
+    - eso fue un chiste?
+    - eso es un chiste?
+    - que chiste mas malo
 
 - intent: cursando_materias
   examples: |
@@ -402,6 +414,9 @@ nlu:
     - para vos voy a ser [anabella](nombre)
     - vos decime [jose](nombre)
     - soy [brisa](nombre) para vos
+    - [chafa](nombre)
+    - [rama](nombre)
+    - [facu](nombre)
 
 - intent: cuantos_dias_mundial
   examples: |
@@ -569,6 +584,9 @@ nlu:
     - dame una foto de una [cabra](pedido_foto)
     - quiero otra
     - otra mas
+    - otra de [messi](pedido_foto)
+    - otra de [república dominicana](pedido_foto)
+    - bueno una de [calamares](pedido_foto)
     - otra de un [cangrejo](pedido_foto)
     - otra del [titanic](pedido_foto)
     - mandame otra mas
@@ -597,3 +615,96 @@ nlu:
     - mandame una foto de los [beatles](pedido_foto)
     - ahora una del [everest](pedido_foto)
     - ahora una de la [mona lisa](pedido_foto)
+
+- intent: risa
+  examples: |
+    - jajaj
+    - jjajaja
+    - xd
+    - xdddd
+    - jujuju
+    - jejejejje
+    - hahahahah
+    - lol
+    - loool
+    - lolll
+    - xxxxdddd
+    - kkkkk
+    - kkkkkkkkk
+    - muajajaj
+    - que risa
+    - que gracioso
+    - que chistoso
+    - chistosito
+    - me muero de la risa
+    - hace mucho no me rio tanto
+    - me va a explotar un pulmon de la risa
+    - me voy a morir de la risa
+    - cuidado vas a matar a alguien de la risa
+    - jajaj buenísimo
+    - jajajaja buenisimo
+    - buenisimo
+    - buenísima 
+    - buenisima
+    - cueck
+    - cuek
+    - :D
+
+- intent: no_es_lo_que_te_pedi
+  examples: |
+    - no es lo que te pedi
+    - no es lo que te pedí
+    - no te pedi eso
+    - no era eso
+    - me mandaste cualquier cosa
+    - cualquier cosa
+    - no es eso
+    - que es eso?
+    - ese no es
+    - mal
+    - incorrecto
+
+- intent: por_que
+  examples: |
+    - por que?
+    - por qué?
+    - por?
+    - porque
+    - porqué
+    - why?
+    - por queee
+
+- intent: que_opinas_de
+  examples: |
+    - que te parece si vamos a la playa
+    - crees que messi gana el proximo balon de oro
+    - que opinas de las criptomonedas
+    - que opinas del helado de menta granizada
+    - que opinas de lenguajes de programacion 1
+    - que opinas de programacion exploratoria
+    - que opinas de
+    - que te parece
+
+- intent: que_contas
+  examples: |
+    - que contas?
+    - que contás?
+    - que contas tanto tiempo?
+    - que cuentas?
+
+- intent: contame_un_chiste
+  examples: |
+    - contame un chiste
+    - decime un chiste
+    - haceme reir
+    - haceme reír
+    - hace mucho no río
+    - hace mucho no rio
+    - quiero otro
+    - otro
+    - mandame un chiste
+    - mandame un chistaco
+    - mandame un chistazo
+    - mandame un chistonto
+    - mandame un meme
+    - mandame un momazo
