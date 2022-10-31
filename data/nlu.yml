@@ -727,17 +727,45 @@ nlu:
     - te gusta el [helado](te_gusta)
     - te gusta el [helado de menta granizada](te_gusta)
     - te gusta el [chocolate blanco](te_gusta)
+    - te gusta el [alfajor](te_gusta)
+    - te gustan los [gusanos](te_gusta)
+    - te gustan las [escaleras](te_gusta)
     - te gustan los [caracoles](te_gusta)
     - te gustan las [almendras](te_gusta)
     - te gusta la [comida rapida](te_gusta)
     - te gusta la [matemática](te_gusta)?
+    - te gusta [matematica](te_gusta)
     - te gustan las [estrellas](te_gusta)
     - te gustan los [caballos](te_gusta)
     - te gustan las [hormigas](te_gusta)?
     - te gusta la [nieve](te_gusta)?
+    - te gusta la [silla nueva](te_gusta)
     - te gustan las [cataratas del iguazu](te_gusta)
     - te gustaria ir a [costa de marfil](te_gusta)
     - te gustaría comer una [torta de frutilla](te_gusta)
+    - te gustaron los [caramelos](te_gusta)
+    - te gustan las [arañas](te_gusta)?
+    - te gustan los [pepinos](te_gusta)?
+    - te gusta el [pepino](te_gusta)?
+    - te gusta [fumar](te_gusta)?
+    - te gusta [acdc](te_gusta)
+    - te gusta [red hot chili peppers](te_gusta)
+    - te gusta [metalica](te_gusta)?
+    - te gusta el [futbol](te_gusta)?
+    - te gusta el [básquet](te_gusta)
+    - te gusta el [fútbol americano](te_gusta)?
+    - te gusta [boxear](te_gusta)?
+    - te gusta [viajar](te_gusta)
+    - te gusta el [matambre a la pizza](te_gusta)
+    - te gusta los [cornalitos](te_gusta)
+    - te gustan las [papas fritas](te_gusta)
+    - te gusta la [comida callejera](te_gusta)?
+    - te gusta la [tarta de atún](te_gusta)
+    - te gustan las [milanesas napolitanas](te_gusta)
+    - te gustaría [ir a brasil](te_gusta)
+    - te gustó el [viaje a cataratas](te_gusta)
+    - te gustó el [gol de messi](te_gusta)?
+    - te gusta 
     - te gusta?
     - te gusto?
     - te gustó?
