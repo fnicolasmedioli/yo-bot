@@ -203,7 +203,7 @@ responses:
   - text: "por?, que te paso?"
 
   utter_que_pena:
-  - text: "que mal :|, pero aca te dejo un momazo"
+  - text: "que mal :|, pero aca te dejo un chiste"
     image: "https://i.chzbgr.com/full/9041671424/hCE1FE1D7"
 
   utter_risa:
@@ -224,6 +224,14 @@ responses:
   utter_chiste:
   - text: ""
     image: "https://ep01.epimg.net/verne/imagenes/2015/08/04/articulo/1438683590_611299_1438690137_sumario_normal.jpg"
+  - text: ""
+    image: "https://ep01.epimg.net/verne/imagenes/2015/08/04/articulo/1438683590_611299_1438689953_sumario_normal.jpg"
+  - text: ""
+    image: "https://ep01.epimg.net/verne/imagenes/2020/09/08/articulo/1599564224_241757_1599575410_sumario_normal.jpg"
+  - text: ""
+    image: "https://pbs.twimg.com/media/Cq5lr_DWEAACHwR.jpg"
+  - text: ""
+    image: "https://i.pinimg.com/originals/13/90/46/1390462ea5411e8c009f4bf71deeaa0a.jpg"
 
   utter_mi_nombre:
   - text: "soy nicolás!"
