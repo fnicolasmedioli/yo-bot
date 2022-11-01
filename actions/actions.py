@@ -195,10 +195,7 @@ class ActionTeGustaAlgo(Action):
 
         slot_algo = tracker.get_slot("te_gusta")
 
-        print("trabajando con slot:", slot_algo)
-
         if not slot_algo:
-            print("error inesperado2")
             return []
         
         cosas_que_no_me_gustan = ["pepino", "araña", "fumar", "politicos", "mosca"]
@@ -227,7 +224,6 @@ class ActionTeGustaAsignatura(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         if len(tracker.latest_message["entities"]) == 0:
-            print("Ejecutando action_te_gusta_asignatura pero no se detecto ninguna entidad")
             return []
 
         entidad_asignatura = tracker.latest_message["entities"][0]["value"]
@@ -235,7 +231,6 @@ class ActionTeGustaAsignatura(Action):
         asignatura_json = asignaturas.buscar_asignatura_por_nombre(entidad_asignatura)
 
         if not asignatura_json:
-            print("No se encontro la asignatura:", entidad_asignatura)
             return []
 
         cod_asignatura = asignatura_json["codigo"]
@@ -334,33 +329,32 @@ def find_last(s, q):
     return desde
 
 
-def entidad_foto(s):
-
-    pre = [" un ", " una ", " del ", " de ", " los ", " la "]
-    ind = []
-
-    last_index_max = 0
-    last_max = 0
-
-    for i in range(len(pre)):
-        last = find_last(s, pre[i])
-        if last > last_max:
-            last_max = last
-            last_index_max = i
-        ind.append(last)
-
-    if last_max == -1:
-        return None
-
-    entidad = None
-
-    if ind[2] != -1:
-        entidad = s[ind[2] + len(pre[2]):]
-    else:
-        entidad = s[last_max + len(pre[last_index_max]):]
-
-    return entidad
-
+#def entidad_foto(s):
+#
+#    pre = [" un ", " una ", " del ", " de ", " los ", " la "]
+#    ind = []
+#
+#    last_index_max = 0
+#    last_max = 0
+#
+#    for i in range(len(pre)):
+#        last = find_last(s, pre[i])
+#        if last > last_max:
+#            last_max = last
+#            last_index_max = i
+#        ind.append(last)
+#
+#    if last_max == -1:
+#        return None
+#
+#    entidad = None
+#
+#    if ind[2] != -1:
+#        entidad = s[ind[2] + len(pre[2]):]
+#    else:
+#        entidad = s[last_max + len(pre[last_index_max]):]
+#
+#    return entidad
 
 
 class ActionUnaFoto(Action):
@@ -375,8 +369,11 @@ class ActionUnaFoto(Action):
         if not xRapidApiKey:
             print("xRapidApiKey no encontrada")
             return []
+        
+        if len(tracker.latest_message["entities"]) == 0:
+            return []
 
-        texto_busqueda = entidad_foto(tracker.latest_message["text"])
+        texto_busqueda = tracker.latest_message["entities"][0]["value"]
 
         if not texto_busqueda:
             texto_busqueda = tracker.get_slot("pedido_foto")
@@ -398,12 +395,10 @@ class ActionUnaFoto(Action):
         try:
             response = requests.request("GET", "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/ImageSearchAPI", headers=headers, params=querystring)
         except:
-            print("No se pudo conectar a la API de imagenes")
             dispatcher.utter_message(text="no me pude conectar con la API de imagenes :(")
             return []
 
         if len(response.json()["value"]) == 0:
-            print("No se encontraron fotos")
             dispatcher.utter_message(text="no encontré fotos :(")
             return []
 
