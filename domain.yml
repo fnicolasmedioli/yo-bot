@@ -24,6 +24,7 @@ intents:
   - explicacion_mal_estado
   - una_foto
   - risa
+  - no_risa
   - no_es_lo_que_te_pedi
   - por_que
   - que_opinas_de
@@ -31,6 +32,7 @@ intents:
   - contame_un_chiste
   - pide_nombre
   - te_gusta
+  - agradece
 
 entities:
   - asignatura

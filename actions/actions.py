@@ -357,6 +357,41 @@ def find_last(s, q):
 #    return entidad
 
 
+def url_imagen_valida(url):
+
+    headers = {
+        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+        "accept-encoding": "gzip, deflate, br",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
+    }
+
+    try:
+        r = requests.get(url, headers=headers, timeout=4)
+
+        if r.status_code == 200 and "image" in r.headers["content-type"]:
+            return True
+    except:
+        pass
+
+    return False
+
+
+def seleccionar_url_imagen_valida(arr):
+    cantidad = len(arr)
+    try_n = 0
+    url_elegida = None
+
+    while try_n < 5 and not url_elegida:
+        n_random = random.randint(0, cantidad-1)
+        url_random = arr[n_random]["url"]
+        print("url_random:", url_random)
+        if url_imagen_valida(url_random):
+            print("fue elegida como valida")
+            url_elegida = url_random
+        try_n += 1
+    
+    return url_elegida
+
 class ActionUnaFoto(Action):
 
     def name(self) -> Text:
@@ -402,9 +437,15 @@ class ActionUnaFoto(Action):
             dispatcher.utter_message(text="no encontré fotos :(")
             return []
 
-        n = random.randint(0, len(response.json()["value"]) - 1)
+        #n = random.randint(0, len(response.json()["value"]) - 1)
 
-        url_foto = response.json()["value"][n]["url"]
+        #url_foto = response.json()["value"][n]["url"]
+
+        url_foto = seleccionar_url_imagen_valida(response.json()["value"])
+
+        if not url_foto:
+            dispatcher.utter_message(text="no pude conseguir fotos :(")
+            return []
 
         dispatcher.utter_message(image=url_foto)
 

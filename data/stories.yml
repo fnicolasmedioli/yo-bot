@@ -94,12 +94,15 @@ stories:
   steps:
   - intent: que_contas
   - action: utter_los_numeros
+  - intent: no_risa
+  - action: utter_risa
+  - action: utter_perdon
 
 - story: Quiero un chiste
   steps:
   - intent: contame_un_chiste
   - action: utter_chiste
-  - intent: negativo
+  - intent: no_risa
   - action: utter_perdon
 
 - story: Te gusta algo

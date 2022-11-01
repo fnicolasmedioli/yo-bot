@@ -99,15 +99,6 @@ nlu:
     - que te importa
     - no te importa
     - metete en tus cosas
-    - muy malo
-    - malisimo
-    - malísimo
-    - me tenía que reir?
-    - me tengo que reir?
-    - me tenia que reír?
-    - eso fue un chiste?
-    - eso es un chiste?
-    - que chiste mas malo
 
 - intent: cursando_materias
   examples: |
@@ -586,6 +577,46 @@ nlu:
     - otra
     - de nuevo
     - mandame una mas
+    - mandame una de [messi](pedido_foto)
+    - mandame una del [diego](pedido_foto)
+    - mándame una [mandarina](pedido_foto)
+    - mándame un [avion de papel](pedido_foto)
+    - mándame una [catedral importante](pedido_foto)
+    - mándame una [ciudad de francia](pedido_foto)
+    - mandame el [estado civil](pedido_foto)
+    - mandame el [carnet de conducir](pedido_foto)
+    - mandame el [juego del calamar](pedido_foto)
+    - mandame el [documento de identidad](pedido_foto)
+    - mandame la [bengala de navidad](pedido_foto)
+    - mandame la [matriz de costos](pedido_foto)
+    - mandame la [maqueta del avión](pedido_foto)
+    - mandame un [número aleatorio](pedido_foto)
+    - mandame un [juego de azar](pedido_foto)
+    - mandame un [momazo de fútbol](pedido_foto)
+    - mandame un [guiso de lentejas](pedido_foto)
+    - mandame un [buen tuco](pedido_foto)
+    - mandame una [buena salsa portuguesa](pedido_foto)
+    - mandame una [avioneta volando](pedido_foto)
+    - mandame una [pc master race](pedido_foto)
+    - mandame un [licor](pedido_foto)
+    - mandame una [sopa de cabello de ángel](pedido_foto)
+    - mandame un [mazo de cartas](pedido_foto)
+    - mandame una [ensalada rusa](pedido_foto)
+    - mandame un [torneo de tenis](pedido_foto)
+    - mandame un [árbol de generaciones](pedido_foto)
+    - mandame una [lata de atun](pedido_foto)
+    - mandame un [arreglo tridimensional](pedido_foto)
+    - mandame la [regla de oro](pedido_foto)
+    - mandame la [lengua mas larga del mundo](pedido_foto)
+    - mandame el [síndrome del túnel carpiano](pedido_foto)
+    - mandame una [lechuga en moto](pedido_foto)
+    - mandame una [casa embrujada](pedido_foto)
+    - mandame una [ley tonta](pedido_foto)
+    - mandame una [pared de durlock](pedido_foto)
+    - mandame una [computadora notebook](pedido_foto)
+    - mandame una [vista a la sierra](pedido_foto)
+    - mandame una [ventana](pedido_foto)
+    - mandame la [raíz cuadrada](pedido_foto)
     - mandame foto del [diego]{"entity":"pedido_foto","value":"maradona"}
     - mandame foto del [10]{"entity":"pedido_foto","value":"messi"}
     - mandame una foto de [novak djokovic](pedido_foto)
@@ -600,7 +631,7 @@ nlu:
     - mandame una foto de una [escoba voladora](pedido_foto)
     - mandame una foto de la [bomba atómica](pedido_foto)
     - ahora una de la [mona lisa](pedido_foto)
-    - ahora del la [colimba](pedido_foto)
+    - ahora de la [colimba](pedido_foto)
     - ahora una del [monstruo del lago ness](pedido_foto)
     - otra de un [barco hundido](pedido_foto)
     - mandame una foto del [rey leon](pedido_foto)
@@ -638,6 +669,36 @@ nlu:
     - mandame el pack del [chafa](pedido_foto)
     - mandame una foto hot del [chafa](pedido_foto)
 
+- intent: no_risa
+  examples: |
+    - que risa
+    - que gracioso
+    - que chistoso
+    - me muero de la risa
+    - hace mucho no me rio tanto
+    - me va a explotar un pulmon de la risa
+    - me voy a morir de la risa
+    - cuidado vas a matar a alguien de la risa
+    - cueck
+    - cuek
+    - :D
+    - muy malo
+    - malisimo
+    - malísimo
+    - me tenía que reir?
+    - me tengo que reir?
+    - me tenia que reír?
+    - eso fue un chiste?
+    - eso es un chiste?
+    - que chiste mas malo
+    - que chiste mas bueno
+    - que chiste mas malo por favor
+    - mis oidos
+    - mis oídos
+    - me voy a morir de la risa
+    - no me hagas reir tanto
+    - no me haghas reír tanto por favor
+
 - intent: risa
   examples: |
     - jajaj
@@ -654,23 +715,12 @@ nlu:
     - kkkkk
     - kkkkkkkkk
     - muajajaj
-    - que risa
-    - que gracioso
-    - que chistoso
     - chistosito
-    - me muero de la risa
-    - hace mucho no me rio tanto
-    - me va a explotar un pulmon de la risa
-    - me voy a morir de la risa
-    - cuidado vas a matar a alguien de la risa
     - jajaj buenísimo
     - jajajaja buenisimo
     - buenisimo
     - buenísima 
     - buenisima
-    - cueck
-    - cuek
-    - :D
 
 - intent: no_es_lo_que_te_pedi
   examples: |
@@ -801,3 +851,11 @@ nlu:
     - te esta gustando la [materia](te_gusta)?
     - te gusta lenguajes de programacion?
     - te gusta exploratoria?
+
+- intent: agradece
+  examples: |
+    - gracias
+    - muchas gracias!
+    - estoy muy agradecido
+    - estoy agradecida
+    - te agradezco
