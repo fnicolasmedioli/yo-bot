@@ -13,7 +13,7 @@ intents:
   - promocionadas
   - nombre
   - cuantos_dias_mundial
-  - pais
+  - pais_no_argentina
   - anulo_mufa
   - si_fueras_un_insecto
   - dias_horarios_cursada
@@ -33,6 +33,10 @@ intents:
   - pide_nombre
   - te_gusta
   - agradece
+  - argentina
+  - quiero_una_reunion
+  - dia_y_hora
+  - lugar
 
 entities:
   - asignatura
@@ -41,8 +45,26 @@ entities:
   - pais
   - pedido_foto
   - te_gusta
+  - dia
+  - hora
+  - lugar
 
 slots:
+  dia:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: dia
+  hora:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: hora
+  lugar:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: lugar
   asignatura:
     type: text
     influence_conversation: true
@@ -91,6 +113,16 @@ actions:
   - action_foto
   - action_te_gusta_asignatura
   - action_te_gusta_algo
+  - action_establecer_reunion
+  - validate_reunion_form
+  - action_set_datos_reunion
+
+forms:
+  reunion_form:
+    required_slots:
+        - dia
+        - hora
+        - lugar
 
 responses:
   utter_hola:
@@ -105,16 +137,6 @@ responses:
   - text: "un gusto verte de nuevo"
 
   utter_chau:
-    - condition:
-      - type: slot
-        name: nombre
-        value: null
-      text: "chau!"
-    - condition:
-      - type: slot
-        name: nombre
-        value: null
-      text: "adios persona anónima!"
     - condition:
       - type: slot
         name: nombre
@@ -144,6 +166,7 @@ responses:
 
   utter_materia_mas_me_gusta:
   - text: "programación exploratoria es la materia que más me gusta!"
+  - text: "programacion exploratoria!"
 
   utter_como_llevo_carrera:
   - text: "llevo la carrera al día"
@@ -154,9 +177,11 @@ responses:
 
   utter_con_quien_hablo:
   - text: "perdón, podrías decirme tu nombre?"
+  - text: "perdón, me decís tu nombre?"
 
   utter_un_gusto:
   - text: "un gusto {nombre}!"
+  - text: "es un gusto, {nombre}"
 
   utter_gusto_en_conocerte:
   - text: "gusto en conocerte {nombre}!"
@@ -166,9 +191,6 @@ responses:
   - text: "no hay problema!"
   - text: "no hay drama!"
 
-  utter_como_es:
-  - text: "como es?"
-
   utter_quien_gana_mundial:
   - text: "quien crees que gana el mundial?"
   - text: "quien gana el mundial?"
@@ -176,6 +198,10 @@ responses:
   utter_va_a_ganar_argentina:
   - text: "va a ganar argentina!"
   - text: "gana argentina obviamente!"
+
+  utter_anulo_mufa:
+  - text: "anulo mufa"
+  - text: "ANULO MUFA"
 
   utter_anulo_mufax2:
   - text: "anulo mufa x2"
@@ -191,18 +217,22 @@ responses:
 
   utter_ciudad_origen:
   - text: "soy de rauch, estoy en tandil para estudiar"
+  - text: "soy de rauch, vine a vivir a tandil para estudiar"
 
   utter_como_estas:
   - text: "estoy mejor que nunca, gracias por preguntar"
+  - text: "mejor que nunca, gracias por preguntar"
 
   utter_vos_como_estas:
   - text: "y vos como estas?"
+  - text: "vos como estás?"
 
   utter_me_alegro:
   - text: "me alegro!"
 
   utter_que_te_paso:
   - text: "por?, que te paso?"
+  - text: "por?, te pasó algo?"
 
   utter_que_pena:
   - text: "que mal :|, pero aca te dejo un chiste"
@@ -210,18 +240,23 @@ responses:
 
   utter_risa:
   - text: "jajajjaja"
+  - text: "jajjajjjajaj"
+  - text: "aajjajaaja"
 
   utter_perdon:
   - text: "perdon :("
+  - text: "perdón :(("
 
   utter_por_que_seria_grillo:
   - text: "porque supuestamente traen buena suerte"
 
   utter_puro_humo:
   - text: "puro humo"
+  - text: "puro humo jaja"
 
   utter_los_numeros:
   - text: "los numeros :)"
+  - text: "los números :D"
 
   utter_chiste:
   - text: ""
@@ -237,6 +272,24 @@ responses:
 
   utter_mi_nombre:
   - text: "soy nicolás!"
+
+  utter_de_nada:
+  - text: "de nada!"
+
+  utter_bien_cuando_podes:
+  - text: "bien, cuando podes?"
+  - text: "bueno, cuando podes?"
+
+  utter_ask_dia:
+  - text: "cuando?"
+
+  utter_ask_hora:
+  - text: "a que hora?"
+  - text: "hora?"
+  - text: "en que horario?"
+
+  utter_ask_lugar:
+  - text: "donde?"
 
 session_config:
   session_expiration_time: 60

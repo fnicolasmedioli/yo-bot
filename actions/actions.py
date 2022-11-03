@@ -1,7 +1,9 @@
-from typing import Any, Text, Dict, List
+from typing import Any, Text, Dict, List, Optional
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
+from rasa_sdk.forms import FormValidationAction
+from rasa_sdk.types import DomainDict
 from unidecode import unidecode
 import actions.asignaturas as asignaturas
 import actions.utilidades as utilidades
@@ -12,6 +14,8 @@ import actions.telegram_api as telegram_api
 import requests
 import os
 import random
+
+# from rasa_sdk import Tracker, FormValidationAction
 
 xRapidApiKey = os.environ.get("xRapidApiKey")
 
@@ -122,9 +126,8 @@ class ActionComoVoy(Action):
                 elif entidades["como_vas_con"]["value"] == "carrera":
                     dispatcher.utter_message(response="utter_como_llevo_carrera")
                     return [SlotSet("como_vas_con", "carrera")]
-            
-            dispatcher.utter_message(response="utter_como_voy_con_no_entendi")
-            return []
+
+        dispatcher.utter_message(text="voy bien :)")
 
         return []
 
@@ -318,7 +321,6 @@ class ActionTelegramManagement(Action):
         else:
             return []
 
-
 def find_last(s, q):
     desde = -1
     while True:
@@ -327,34 +329,6 @@ def find_last(s, q):
             break
         desde = t
     return desde
-
-
-#def entidad_foto(s):
-#
-#    pre = [" un ", " una ", " del ", " de ", " los ", " la "]
-#    ind = []
-#
-#    last_index_max = 0
-#    last_max = 0
-#
-#    for i in range(len(pre)):
-#        last = find_last(s, pre[i])
-#        if last > last_max:
-#            last_max = last
-#            last_index_max = i
-#        ind.append(last)
-#
-#    if last_max == -1:
-#        return None
-#
-#    entidad = None
-#
-#    if ind[2] != -1:
-#        entidad = s[ind[2] + len(pre[2]):]
-#    else:
-#        entidad = s[last_max + len(pre[last_index_max]):]
-#
-#    return entidad
 
 
 def url_imagen_valida(url):
@@ -384,9 +358,7 @@ def seleccionar_url_imagen_valida(arr):
     while try_n < 5 and not url_elegida:
         n_random = random.randint(0, cantidad-1)
         url_random = arr[n_random]["url"]
-        print("url_random:", url_random)
         if url_imagen_valida(url_random):
-            print("fue elegida como valida")
             url_elegida = url_random
         try_n += 1
     
@@ -437,10 +409,6 @@ class ActionUnaFoto(Action):
             dispatcher.utter_message(text="no encontré fotos :(")
             return []
 
-        #n = random.randint(0, len(response.json()["value"]) - 1)
-
-        #url_foto = response.json()["value"][n]["url"]
-
         url_foto = seleccionar_url_imagen_valida(response.json()["value"])
 
         if not url_foto:
@@ -450,3 +418,126 @@ class ActionUnaFoto(Action):
         dispatcher.utter_message(image=url_foto)
 
         return []
+
+
+class ActionEstablecerReunion(Action):
+
+    def name(self) -> Text:
+        return "action_establecer_reunion"
+    
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        # Guardar los datos
+
+        datos_disponibilidad = utilidades.OperarArchivo.leer_json("disponibilidad.json")
+
+        dia = tracker.get_slot("dia")
+
+        if not dia in datos_disponibilidad:
+            datos_disponibilidad[dia] = []
+
+        # Asumo que la reunion dura una hora
+
+        hora_str = tracker.get_slot("hora")
+
+        lugar = tracker.get_slot("lugar")
+
+        datos_a_guardar = {
+            "desde": hora_str,
+            "hasta": str((int(hora_str[0:2])+1)%24).zfill(2) + hora_str[2:],
+            "motivo": "tengo reunion con alguien",
+            "lugar": lugar
+        }
+
+        nombre_persona = tracker.get_slot("nombre")
+        
+        if nombre_persona:
+            datos_a_guardar["motivo"] = "tengo reunion con " + nombre_persona
+
+        datos_disponibilidad[dia].append(datos_a_guardar)
+
+        utilidades.OperarArchivo.escribir_json(datos_disponibilidad, "disponibilidad.json")
+
+        dispatcher.utter_message(text=f"bien, entonces el {dia} a las {hora_str} voy a estar esperandote en {lugar}!")
+
+        return [SlotSet("dia", None), SlotSet("hora", None), SlotSet("lugar", None)]
+
+
+def estoy_ocupado(dia, hora):
+
+    datos = utilidades.OperarArchivo.leer_json("disponibilidad.json")
+
+    if not dia in datos:
+        return False
+
+    for rango_horario in datos[dia]:
+        if hora >= rango_horario["desde"] and hora <= rango_horario["hasta"]:
+            return rango_horario["motivo"]
+
+
+class ValidateReunionForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_reunion_form"
+
+    def validate_dia(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+
+        utter = len(utilidades.mapear_entidades(tracker.latest_message["entities"]))
+
+        hora = tracker.get_slot("hora")
+
+        validos = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo", "hoy", "mañana"]
+
+        if slot_value in validos:
+
+            if hora:
+
+                ocupado = estoy_ocupado(slot_value, hora)
+
+                if ocupado:
+                    if utter:
+                        dispatcher.utter_message(text="no estoy disponible ese dia a esa hora porque " + ocupado + ", coordinemos otro momento")
+                    SlotSet("dia", None)
+                    SlotSet("hora", None)
+                    return { "dia": None, "hora": None }
+
+            return { "dia": slot_value }
+
+        return { "dia": None }
+
+    def validate_hora(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+
+        utter = len(utilidades.mapear_entidades(tracker.latest_message["entities"]))
+
+        if not slot_value:
+            return { "hora": None }
+
+        hora_transformada = utilidades.parsear_y_transformar_hora(slot_value)
+
+        dia = tracker.get_slot("dia")
+
+        if hora_transformada:
+            if dia:
+                ocupado = estoy_ocupado(dia, slot_value)
+                if ocupado:
+                    if utter:
+                        dispatcher.utter_message(text="no estoy disponible ese dia a esa hora porque " + ocupado + ", coordinemos otro momento")
+                    SlotSet("dia", None)
+                    SlotSet("hora", None)
+                    return { "dia": None, "hora": None }
+            return { "hora": hora_transformada }
+
+        return { "hora": None }

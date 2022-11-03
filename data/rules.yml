@@ -22,7 +22,7 @@ rules:
   - intent: promocionadas
   - action: utter_promocionadas
 
-- rule: Pregunta finales
+- rule: Pregunta asignatura
   steps:
   - intent: pregunta_asignatura
   - action: action_respuesta_asignatura
@@ -56,3 +56,24 @@ rules:
   steps:
   - intent: pide_nombre
   - action: utter_mi_nombre
+
+- rule: De nada
+  steps:
+  - intent: agradece
+  - action: utter_de_nada
+
+- rule: Activar form reunion
+  steps:
+  - intent: quiero_una_reunion
+  - action: reunion_form
+  - active_loop: reunion_form
+
+- rule: Terminar form reunion
+  condition:
+  - active_loop: reunion_form
+  steps:
+  - action: reunion_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_establecer_reunion

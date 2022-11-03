@@ -1,0 +1,32 @@
+{
+    "lunes": [
+        {
+            "desde": "09:00",
+            "hasta": "13:00",
+            "motivo": "curso bases de datos"
+        }
+    ],
+    "martes": [
+        {
+            "desde": "13:00",
+            "hasta": "16:00",
+            "motivo": "curso lenguajes"
+        }
+    ],
+    "miercoles": [
+        {
+            "desde": "13:00",
+            "hasta": "16:00",
+            "motivo": "curso exploratoria"
+        }
+    ],
+    "sabado": [
+        {
+            "dia": "sabado",
+            "desde": "19:45",
+            "hasta": "20:45",
+            "motivo": "tengo reunion con Nicolas",
+            "lugar": "el bar"
+        }
+    ]
+}

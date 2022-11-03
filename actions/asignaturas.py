@@ -68,6 +68,9 @@ def nombre_asignatura(codigo):
 
 def nombre_a_codigo(nombre):
 
+    if not nombre:
+        return None
+
     asignatura = buscar_asignatura_por_nombre(nombre)
 
     if asignatura:

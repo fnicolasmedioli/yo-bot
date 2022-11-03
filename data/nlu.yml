@@ -103,6 +103,8 @@ nlu:
 - intent: cursando_materias
   examples: |
     - que materias estas cursando?
+    - que estas cursando
+    - que estás cursando?
     - estás cursando [analisis 2](asignatura)
     - cursas [algebra](asignatura) este cuatrimestre?
     - en qué materias estás?
@@ -317,6 +319,7 @@ nlu:
 
 - intent: como_vas
   examples: |
+    - como vas?
     - como vas con la [cursada](como_vas_con)
     - terminaste de [cursar]{"entity":"como_vas_con","value":"cursada"}
     - vas bien con el [proyecto](como_vas_con)
@@ -329,7 +332,7 @@ nlu:
     - llevas las [cursadas]{"entity":"como_vas_con","value":"cursada"} al día?
     - llevas [algebra lineal](asignatura) al día?
     - como venís con [analisis matemático](asignatura)?
-    - venis bien con comunicacion de datos?
+    - venis bien con comunicacion de datos?  
     - estas al dia con algoritmos 2
     - como vas con el [bot](como_vas_con)
     - como estas con [electronica digital](asignatura)?
@@ -365,16 +368,24 @@ nlu:
     - cuantas debes?
     - como estas con los finales?
     - estas al dia con los finales?
-    - que nota sacaste en el final de ayda 2?
-    - que sacaste en algoritmos?
-    - como te fue en el final de [matematica discreta](asignatura)?
-    - como te fue en meto?
     - aprobaste [comunicacion de datos](asignatura)?
     - tenes que dar [programacion 1](asignatura)?
     - ya diste fisica?
     - tenes la cursada de [intro arqui](asignatura) aprobada?
     - ya cursaste lineal?
     - cuando vas a cursar electrónica?
+    - con que nota aprobaste el final
+    - con que nota aprobaste el final de algebra
+    - con que nota aprobaste la cursada de objetos
+    - con cuanto aprobaste algebra?
+    - con cuánto aprobaste analisis 2?
+    - con cuanto aprobaste la cursada
+    - que nota sacaste en el final de ayda 2?
+    - que sacaste en algoritmos?
+    - como te fue en la cursada de matematica discreta?
+    - como te fue en meto?
+    - que sacaste en la cursada?
+    - qué sacaste en el final
 
 - synonym: promocion
   examples: |
@@ -430,9 +441,8 @@ nlu:
     - catar
     - fase de grupos
 
-- intent: pais
+- intent: pais_no_argentina
   examples: |
-    - [argentina](pais)
     - [paraguay](pais)
     - va a ganar [holanda](pais)
     - gana [peru](pais)
@@ -859,3 +869,162 @@ nlu:
     - estoy muy agradecido
     - estoy agradecida
     - te agradezco
+
+- intent: argentina
+  examples: |
+    - argentina
+    - arg
+    - argentinaaa!
+    - va a ganar argentina
+    - gana argentina
+    - gana papa
+    - gana papá
+
+- intent: quiero_una_reunion
+  examples: |
+    - quiero una reunion
+    - quiero una reunión
+    - quiero establecer una reunión
+    - cuando nos podemos reunir
+    - cuándo nos reunimos?
+    - cuando podemos reunirnos?
+    - necesito una reunion
+    - cuándo podemos reunirnos
+    - necesito que nos juntemos
+    - cuando nos juntamos
+    - cuándo nos juntamos
+    - hay que establecer una reunión
+    - nos tenemos que juntar
+    - nos tenemos que juntar algún dia
+    - cuando podes juntarnos?
+    - cuándo podes juntarte?
+    - quiero acordar una reunión
+    - quiero acordar una reunion
+    - quiero organizar una reunion
+    - quiero que nos juntemos a hablar
+    - quiero que nos juntemos a tomar algo
+    - nos juntamos a tomar algo?
+    - quiero que nos juntemos, tengo que decirte algo
+    - quiero armar una reunion
+    - quiero organizar una reunion
+
+- synonym: miercoles
+  examples: |
+    - miércoles
+
+- synonym: sabado
+  examples: |
+    - sábado
+
+- synonym: pm
+  examples: |
+    - PM
+    - de la tarde
+    - de la noche
+
+- synonym: am
+  examples: |
+    - AM
+    - de la mañana
+
+- intent: dia_y_hora
+  examples: |
+    - [mañana](dia)
+    - el [martes](dia) a las [4:30](hora)
+    - el [lunes](dia)
+    - el [miercoles](dia) a las [3](hora)
+    - el [jueves](dia) a las [dos y media](hora)
+    - el [viernes](dia) a las [cuatro](hora)
+    - el [sabado](dia) a las [nueve menos cuarto](hora)
+    - a las [8 y media](hora)
+    - tipo [cuatro y media](hora)
+    - tipo [5](hora)
+    - tipo [2 pm](hora)
+    - tipo [2:45 am](hora)?
+    - a las [cuatro y cuarto](hora)?
+    - te podes juntar a las [4](hora) el [viernes](dia)?
+    - te podés juntar el [jueves](dia)
+    - [hoy](dia) a la tarde
+    - [mañana](dia) a la noche
+    - el [martes](dia) a las [14:30](hora)
+    - el [viernes](dia) al [mediodia]{"entity":"hora","value":"12:00"}
+    - el [domingo](dia) a las [14](hora), te parece?
+    - a las [14:30](hora)
+    - a las [3](hora)
+    - mas o menos a las [15](hora)
+    - desde las [15](hora) puedo
+    - desde [14:30] puedo
+    - a partir de las [18](hora) horas
+    - a las [2 pm](hora)
+    - puedo a las [4:30 am](hora)
+    - a partir de la [01:30 PM](hora)
+    - [catorce y 25](hora)
+    - [veinte y cuarto](hora)
+    - a las [ocho](hora)
+    - a las [3 de la tarde](hora)
+    - a las [8 de la noche](hora)
+    - a las [nueve de la mañana](hora)
+    - a las [4 pm](hora)
+    - a las [cuatro pm](hora)
+    - a las [15:30 pm]
+    - a las [4:15 pm](hora)
+    - [4 pm](hora)
+    - [12:30 am](hora)
+    - [1:45 pm](hora)
+    - [2 am](hora)
+    - [2](hora)
+    - [5:30](hora)
+    - a las [5:30](hora) te parece?
+    - [5 pm](hora) te parece?
+    - tipo [2:30 pm](hora)?
+    - el [martes](dia) [4:30 am](hora)?
+    - te parece el [sábado](dia) a las [2](hora)?
+    - te parece el [domingo](dia) [6:30 pm](hora)?
+    - a las [4 y media](hora)
+    - a las [2 de la tarde](hora)
+    - a las [8 de la mañana](hora)
+    - el [sábado](dia) a las [cuatro de la tarde](hora)
+    - el [domingo](dia) a las [2 de la mañana](hora)
+    - [2 de la mañana](hora)
+    - [dos de la mañana](hora)
+    - a las [4 de la tarde](hora)
+    - [cinco de la tarde](hora)
+    - a las [4 de la mañana](hora)
+    - [8 y media de la mañana](hora)
+    - [6 y media de la tarde](hora)
+    - [6:30 de la tarde](hora)
+    - entonces el [jueves](dia)
+    - entonces el [domingo](dia) a las [4](hora)
+
+- intent: lugar
+  examples: |
+    - en [el bar de la esquina](lugar)
+    - en [el cabildo](lugar)
+    - en [la plaza](lugar)
+    - en [la esquina entre avellaneda y san martín](lugar)
+    - [la playa](lugar)
+    - [donde comimos el otro día](lugar)
+    - [al frente del balneario](lugar)
+    - [al lado del hogar de ancianos](lugar)
+    - en [el centro comercial](lugar)
+    - [afuera del carrefour](lugar)
+    - en [el mismo lugar que la última vez](lugar)
+    - [atrás de la cancha](lugar)
+    - en tu [casa](lugar)
+    - en tu [galpón](lugar)
+    - en [mar del plata](lugar)
+    - [campus universitario](lugar)
+    - [al frente del banco nación](lugar)
+    - en [el bar que esta al frente de la plaza colon](lugar)
+    - en [la plaza](lugar) te parece?
+    - en [la terminal](lugar) te va?
+    - [adentro del hotel](lugar) te gusta?
+    - en [la fábrica que está al lado del puente](lugar), queres?
+    - en [tandil](lugar)
+    - en [capital federal](lugar)
+    - en [el planeta tierra](lugar)
+    - en [new york](lugar)
+    - en [la capital de austria](lugar)
+    - en [el bar de tandil](lugar)
+    - en [el café del aeropuerto](lugar)
+    - en [la isla de servicio](lugar)

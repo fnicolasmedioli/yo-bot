@@ -40,12 +40,20 @@ stories:
   - intent: nombre
   - action: utter_un_gusto
 
-- story: Dias para el mundial
+- story: Dias para el mundial + anulo mufa
   steps:
   - intent: cuantos_dias_mundial
   - action: action_dias_para_el_mundial
   - action: utter_quien_gana_mundial
-  - intent: pais
+  - intent: argentina
+  - action: utter_anulo_mufa
+
+- story: Dias para el mundial + va a ganar argentina
+  steps:
+  - intent: cuantos_dias_mundial
+  - action: action_dias_para_el_mundial
+  - action: utter_quien_gana_mundial
+  - intent: pais_no_argentina
   - action: utter_va_a_ganar_argentina
 
 - story: Insectos...
